@@ -9,7 +9,7 @@
 
 #define WIDTH 30
 #define HEIGHT 20
-#define MAX_DIST 5`
+#define MAX_DIST 5
 #define FOV 50
 
 static char* canvas = NULL;
