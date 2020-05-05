@@ -137,19 +137,13 @@ namespace Chimken.Commands
         {
             StringBuilder builder = new StringBuilder();
 
-            if (Regex.IsMatch(word, "[a-zA-Z]"))
+            foreach (var ch in word.ToLower()) 
             {
-                foreach (var ch in word.ToLower()) 
-                {
-                    if (ch != ' ') {
-                        builder.Append($":regional_indicator_{ch}: ");
-                    } else {
-                        builder.Append(" ");
-                    }
+                if (ch != ' ') {
+                    builder.Append($":regional_indicator_{ch}: ");
+                } else {
+                    builder.Append(" ");
                 }
-            }
-            else {
-                await Message(ctx, "That ain't no word");
             }
 
             await Message(ctx, builder.ToString());
