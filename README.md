@@ -10,6 +10,6 @@
 | Chimken (discord bot) | C# |
 
 ## Failures
-| Project | Language |
-| ------- | -------- |
-| Cube    | C        |
+| Project | Language | Reason |
+| ------- | -------- | ------ |
+| Cube    | C        | 3D ASCII in C is too difficult for a two hours project |
