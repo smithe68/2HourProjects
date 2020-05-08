@@ -4,7 +4,7 @@ Jakub and Evan Create something with a 2 hour time limit
 # Successes
 Ascii Paint
 
-Chimken
+Chimken (discord bot)
 
 # Failures
 Cube
