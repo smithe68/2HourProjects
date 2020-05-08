@@ -4,8 +4,12 @@
 <b>The goal is to learn something new and improve already existing skills.</b>
 
 ## Successes
-- Ascii Paint
-- Chimken (discord bot)
+| Project | Language |
+| ------- | -------- |
+| Ascii Paint | Python |
+| Chimken (discord bot) | C# |
 
 ## Failures
-- Cube
+| Project | Language |
+| ------- | -------- |
+| Cube    | C        |
