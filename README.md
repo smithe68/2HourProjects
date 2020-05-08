@@ -2,7 +2,7 @@
 Jakub and Evan Create something with a 2 hour time limit
 
 # Successes
-Ascii Paint
+Ascii Paint\n
 Chimken
 
 # Failures
