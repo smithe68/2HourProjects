@@ -1,8 +1,11 @@
-JakubSzark and smithe68 make projects with a two hour time limit. The goal is to learn something new and improve already existing skills. Please gib job.
+# 2 Hour Projects
+<a href="https://github.com/JakubSzark">JakubSzark</a> and <a href="https://github.com/smithe68">smithe68</a> do programming within a two hour time limit. 
 
-# Successes
+<b>The goal is to learn something new and improve already existing skills.</b>
+
+## Successes
 - Ascii Paint
 - Chimken (discord bot)
 
-# Failures
+## Failures
 - Cube
