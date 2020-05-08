@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Tank</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div id="game">
+        <div id="stats">
+            <span class="heading">Stats</span>
+            <section>
+                <span id="money">Money: $10</span>
+                <span id="income">Income: $0</span>
+                <span id="capacity">Capacity: 0/10</span>
+            </section>
+        </div>
+        <div id="story">
+            <span class="heading">Story</span>
+            <div id="storyline"></div>
+        </div>
+        <div id="fish-tank">
+            <span class="heading">Fish Tank</span>
+            <div>
+                <ul id="fish"></ul>
+            </div>
+        </div>
+        <div id="buy-menu">
+            <span class="heading">Buy Fish</span>
+            <ul>
+                <li onclick="buyGuppies();">
+                    <span class="name">Guppy</span>
+                    <span class="cost">$1</span>
+                </li>
+                <li onclick="buyGoldfish();">
+                    <span class="name">Goldfish</span>
+                    <span class="cost">$4</span>
+                </li>
+                <li onclick="buySalmon();">
+                    <span class="name">Salmon</span>
+                    <span class="cost">$80</span>
+                </li>
+                <li onclick="buyRays();">
+                    <span class="name">Rays</span>
+                    <span class="cost">$169</span>
+                </li>
+                <li onclick="buyDolphins();">
+                    <span class="name">Dolphin</span>
+                    <span class="cost">$300</span>
+                </li>
+                <li onclick="buyShark();">
+                    <span class="name">Shark</span>
+                    <span class="cost">$1000</span>
+                </li>
+                <li onclick="buyWhale();">
+                    <span class="name">Whale</span>
+                    <span class="cost">$10000</span>
+                </li>
+            </ul>
+        </div>
+        <div id="upgrades">
+            <span class="heading">Upgrades</span>
+            <ul>
+                <li onclick="upgradeTankSize();"><span>Upgrade Tank Size</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
