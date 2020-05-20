@@ -9,6 +9,11 @@
 | Ascii Paint | Python |
 | Chimken (discord bot) | C# |
 
+## Almost
+| Project | Language | Reason |
+| ------- | -------- | ------ |
+| Fish Tank | Javascript | It works but its ugly |
+
 ## Failures
 | Project | Language | Reason |
 | ------- | -------- | ------ |
