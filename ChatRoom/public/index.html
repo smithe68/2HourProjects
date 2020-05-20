@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2HR Chat Room</title>
+    <script src="/__/firebase/7.14.4/firebase-app.js"></script>
+    <script src="/__/firebase/7.14.4/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="chatroom.js" defer></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="chatroom"></div>
+    <!--where the user text is supposed to end up-->
+    <div id="userPanel">
+        <!--Everything the user interacts with goes in here -->
+        <span id="user">User: </span>
+        <div id="inputs">
+            <input id="getName" type="text" placeholder="enter name here">
+            <!--Where they put acting user name-->
+            <input id="chat" type="text" placeholder="chat">
+            <!--Where the actuall messages go -->
+            <input id="send" type="button" value="Send">
+        </div>
+    </div>
+</body>
+
+</html>
