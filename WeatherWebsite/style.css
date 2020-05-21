@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+:root {
+    font-size: 18px;
+    font-family: 'Merriweather','Segoe UI', sans-serif;
+
+    --background-color: #FFF1D0;
+    --text-color: #383232;
+    --border-color:#001A23;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#forecasts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 1rem 1rem 1rem;
+    gap: 1rem;
+}
+
+#title {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem 0 0rem 0;
+}
+
+#position {
+    padding: 0.5rem 0 1rem 0;
+}
+
+main {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+h1 {
+    padding: 0 0 1rem 0;
+}
+
+h2 {
+    padding: 0 0 0.5rem 0;
+}
+
+img {
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    width: 30%;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.details h2 {
+    grid-column: 1 / 2;
+    padding: 0.25rem 0;
+}
+
+.details span {
+    grid-column: 2 / 3;
+    padding-bottom: 0.5rem;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--text-color);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 2s linear infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

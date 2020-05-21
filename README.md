@@ -8,6 +8,7 @@
 | ------- | -------- |
 | Ascii Paint | Python |
 | Chimken (discord bot) | C# |
+| Weather App | Javascript |
 
 ## Almost
 | Project | Language | Reason |
