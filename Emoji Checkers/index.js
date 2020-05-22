@@ -24,6 +24,7 @@ const Move = {
     JUMPED: 1
 }
 
+
 const Piece = {
     EMPTY: 0,
     BLACK: 1,
