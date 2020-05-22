@@ -11,11 +11,11 @@
 | Chat Room | JS(Firebase) |
 | Weather App | Javascript |
 
-
 ## Almost
 | Project | Language | Reason |
 | ------- | -------- | ------ |
 | Fish Tank | Javascript | It works but its ugly |
+| Emoji Checkers | Javascript | It works perfectly, but took more than 2 hours! |
 
 ## Failures
 | Project | Language | Reason |

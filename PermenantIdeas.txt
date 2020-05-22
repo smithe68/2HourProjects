@@ -1,20 +1,32 @@
-1. Project Site
-2. Music Generator
-3. Keyboard Keyboard
-4. Project Dashboard
-5. Snake
-6. Cookie Clicker 2
-7. Discord Clone
-8. Shopping List
-9. Novalty Website
-11. Website that display temperature given coordinates called how hot is this spot
-12. Electron Program
-13. Emulator
-14. Port doom onto something dumb
-18. Content aggrigation Website
-19. Website
-20. Website pt 2 revenge of the Website
-21. Class schedual?
-22. Planner Website
-23. Secret Website
-24. Fancy Timer
+- Project Site
+- Music Generator
+- Keyboard Keyboard
+- Project Dashboard
+- Snake
+- Incrimental Game
+- Discord Clone
+- Shopping List
+- Novalty Website
+- Emulator
+- Content Aggrigation Website
+- Class Schedule
+- Planner Website
+- Secret Website
+- Fancy Timer
+- Voice to Text Software
+- Text Adventure
+- Maze Solver
+- Tic-Tac-Toe Bot
+- Checkers
+- Twitter Bot
+- 2-D Renderer
+- Web Scraper
+- Calculator Website
+- Tip Calculator
+- Fake Web OS
+- Geolocation website thing that plays differnet music depending on location
+- Nonsense website with no meaning that's only purpose is to look good and have no real functionality (aka Flex site)
+- Sizmic activity monitor
+- Something sciencey
+- Machine learning program that can tell you if something is a bird or not.
+- Maek company
