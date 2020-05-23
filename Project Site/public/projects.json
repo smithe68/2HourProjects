@@ -8,7 +8,7 @@
                 "overly ambitious for only 2 hours"
             ],
             "image": "asciiCube.png",
-            "shortDescription": "ascii rendering of cube"
+            "shortDescription": "The ASCII Cube Tragedy"
         },
         {
             "name": "ASCII Paint",
@@ -18,7 +18,7 @@
                 "brushes that can change the way you paint. It was a very fun project to work on and holds a special place in out heart\n"
             ],
             "image": "asciiPaint.png",
-            "shortDescription": "ascii paint like software"
+            "shortDescription": "It's like Paint but ASCII"
         },
         {
             "name": "Chatroom",
@@ -28,7 +28,7 @@
                 "that wants to access the webpage. You can clear the chat by typing clear in the box though\n"
             ],
             "image": "chatroom.png",
-            "shortDescription": "multiperson chat room"
+            "shortDescription": "A Global Chat Room"
         },
         {
             "name": "Discord Bot",
@@ -41,7 +41,7 @@
                 "into big emojis\n"
             ],
             "image": "chimken.png",
-            "shortDescription": "B-Movie discord bot"
+            "shortDescription": "B-Movie Discord Bot"
         },
         {
             "name": "Emoji Checkers",
@@ -51,7 +51,7 @@
                 "there isn't a bot so bring a frind too\n"
             ],
             "image": "checkers.png",
-            "shortDescription": "standard checkers with emojis"
+            "shortDescription": "Checkers but with Emojis"
         },
         {
             "name": "Fish Tank",
@@ -62,7 +62,7 @@
                 "Give it a try, and let us know if you can beat it...(you can btw it takes like 3 minutes).\n"
             ],
             "image": "fish.png",
-            "shortDescription": "cookie clicker like game"
+            "shortDescription": "Cookie Clicker but Fish"
         },
         {
             "name": "Weather Website",
@@ -73,7 +73,7 @@
                 "but it was our first website that didn't look half bad..."
             ],
             "image": "weather.png",
-            "shortDescription": "Weather website"
+            "shortDescription": "Just a Weather Website"
         }
     ]
 }

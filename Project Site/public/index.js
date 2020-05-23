@@ -63,7 +63,7 @@ async function generateProjectDescriptions() {
     for (let i = 0; i < projectJson.projects.length; i++) {
         let div = document.createElement('div');
         let name = document.createElement("h1");
-        let image = document.createElement("img");
+        let image = document.createElement("div");
         let description = document.createElement("p");
         let section = document.createElement('section');
 
@@ -79,7 +79,7 @@ async function generateProjectDescriptions() {
         }
 
         name.innerHTML = projectJson.projects[i].name;
-        image.src = "images/" + projectJson.projects[i].image;
+        image.style.backgroundImage = `url("images/${projectJson.projects[i].image}")`;
 
         section.append(name);
         section.append(description);
