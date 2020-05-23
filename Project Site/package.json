@@ -1,0 +1,21 @@
+{
+  "name": "project-site",
+  "version": "0.0.1",
+  "description": "Project site for 2HR Projects",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smithe68/2HourProjects.git"
+  },
+  "keywords": [
+    "Project",
+    "Site"
+  ],
+  "author": "Jakub Szarkowicz, Evan Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smithe68/2HourProjects/issues"
+  },
+  "homepage": "https://github.com/smithe68/2HourProjects#readme",
+  "dependencies": {}
+}

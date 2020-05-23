@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+:root {
+    /* Color Palette */
+    --text: #1D201F;
+    --inverted-text: #F6F7EB;
+    --maize: white;
+    --background-color: #0f0f0f;
+    --header-color:#0f0f0f;
+    color: var(--inverted-text);
+    font-family: 'Merriweather', sans-seri;
+    font-size: 16px;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 0 1rem;
+
+    height: 4rem;
+    background: var(--header-color);
+    user-select: none;
+}
+
+nav, nav button {
+    height: 100%;
+}
+
+nav button {
+    padding: 0 1rem;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 1.25rem;
+    color: var(--inverted-text);
+    background: none;
+}
+
+nav button:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.title { 
+    font-size: 2rem; 
+    font-family: 'Kalam', serif;
+    font-weight: 700;
+}
+
+/* SLIDESHOW */
+
+.slideshow {
+    overflow: hidden;
+    position: relative;
+    background: black;
+}
+
+.slideshow span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    border-radius: 5px;
+}
+
+.slideshow-image {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5) blur(4px);
+    transform: scale(1.02);
+}
+
+#back, #next {
+    position: absolute;
+    color: var(--inverted-text);
+    transform: translate(0, -50%);
+    transition: transform 0.1s;
+    cursor: pointer;
+    font-size: 3rem;
+    top: 50%;
+}
+
+#back:hover, #next:hover {
+    transform: translate(0, -50%) scale(1.2);
+    transition: transform 0.1s;
+}
+
+#back {
+    left: 2rem;
+}
+
+#next {
+    right: 2rem;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 512px 1fr;
+    padding: 1rem;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.project section {
+    padding: 1rem;
+}
+
+.project h1 {
+    margin-bottom: 1rem;
+}
+
+.project-image {
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .project {
+        grid-template-columns: 1fr;
+    }
+}

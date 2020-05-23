@@ -1,0 +1,79 @@
+{
+    "projects": [
+        {
+            "name": "ASCII Cube",
+            "description": [
+                "ASCII cube was our first failure. The intention was to create a 3d render of an ascii cube",
+                "that would rotate and zoom in an out, following commands from given arrow keys. Needless to say this was ",
+                "overly ambitious for only 2 hours"
+            ],
+            "image": "asciiCube.png",
+            "shortDescription": "ascii rendering of cube"
+        },
+        {
+            "name": "ASCII Paint",
+            "description": [
+                "ASCII Paint was the first 2 hour project, and one of our favorits for how silly it is.\n",
+                "all it does is take inputs with wasd and place a character in the terminal with space. It also comes with multiple\n",
+                "brushes that can change the way you paint. It was a very fun project to work on and holds a special place in out heart\n"
+            ],
+            "image": "asciiPaint.png",
+            "shortDescription": "ascii paint like software"
+        },
+        {
+            "name": "Chatroom",
+            "description": [
+                "This chat room will work on a good day, because we are poor we can't afford firebase and\n ",
+                "can only read so much data from our server, this one allows you to send messeges back and forth with anyone else\n",
+                "that wants to access the webpage. You can clear the chat by typing clear in the box though\n"
+            ],
+            "image": "chatroom.png",
+            "shortDescription": "multiperson chat room"
+        },
+        {
+            "name": "Discord Bot",
+            "description": [
+                "This is a discord group created for our friends, during the covid-19 pandemic we got really\n",
+                "into watching B-movies, and wanted to make a bot for our discord that would help us pick them\n",
+                "this bot allows you to add movies to a list and pick them, you can also remove movies, pick a random one\n",
+                "or clear the whole list. It also has utility features like rolling a dice or generating a random number, or picture\n",
+                "our favorites though are the shame feature which will shame a random member, and the big command which makes any text\n",
+                "into big emojis\n"
+            ],
+            "image": "chimken.png",
+            "shortDescription": "B-Movie discord bot"
+        },
+        {
+            "name": "Emoji Checkers",
+            "description": [
+                "I mean its basic checkers, but with a few exceptions. You can't multi-jump, and you are not forced to make\n",
+                "a move if you can we could have implimented them, but we ran out of time give it a try if you want \n",
+                "there isn't a bot so bring a frind too\n"
+            ],
+            "image": "checkers.png",
+            "shortDescription": "standard checkers with emojis"
+        },
+        {
+            "name": "Fish Tank",
+            "description": [
+                "Incrimental games our a guilty pleasure of ours so of course we had to make one\n",
+                "it's uhh not very good... 2 hours isn't really enough time to balance a game, and being our first project\n",
+                "in javascript it looks pretty ugly too, but it works so thats about as much as we could ask for.\n",
+                "Give it a try, and let us know if you can beat it...(you can btw it takes like 3 minutes).\n"
+            ],
+            "image": "fish.png",
+            "shortDescription": "cookie clicker like game"
+        },
+        {
+            "name": "Weather Website",
+            "description": [
+                "This one is probobly one of the most functional websites we have built. It tells you the weather\n",
+                "given that you allow location settings. It works by grabing your coordinates from a geolocation api, and then\n ",
+                "it uses those to grab the local weather forcast from a government wheather registery, it isn't the prettiest\n",
+                "but it was our first website that didn't look half bad..."
+            ],
+            "image": "weather.png",
+            "shortDescription": "Weather website"
+        }
+    ]
+}

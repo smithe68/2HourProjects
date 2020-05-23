@@ -30,3 +30,16 @@
 - Something sciencey
 - Machine learning program that can tell you if something is a bird or not.
 - Maek company
+- In Browser Light Show
+- audio visualizer
+- keyboard drumset
+- VS code extension
+- Quine
+- Pong
+- Tetris
+- Chess
+- point and click game
+- Flash card program
+- Auto-Texter
+- Digital Whiteboard
+- Self-Information Home Page tells you everything about whats currently happening in your location
