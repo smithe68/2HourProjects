@@ -59,6 +59,14 @@ nav button:hover {
     font-weight: 700;
     padding-left: 1rem;
 }
+.contactInfo{
+    display: inline-block;
+    
+}
+.name{
+    font-size: 2rem;
+    border-bottom:4px solid white;
+}
 
 /* SLIDESHOW */
 

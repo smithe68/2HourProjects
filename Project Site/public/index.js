@@ -1,11 +1,3 @@
-const slideshow = {
-    "asciiPaint.png": "ASCII PAINT PROGRAM",
-    "asciiCube.png": "Complete Failure",
-    "chatroom.png": "A Broken Chatroom",
-    "weather.png": "A Working Weather App",
-    "checkers.png": "Checkers but emoji"
-}
-
 let slideIndex = 0;
 let slideshowInterval = null;
 
