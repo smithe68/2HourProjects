@@ -9,7 +9,7 @@
             ],
             "image": "asciiCube.png",
             "shortDescription": "The ASCII Cube Tragedy",
-            "link": "../Projects/Swarm Simulation/index.html"
+            "link": "Projects/Swarm Simulation/index.html"
         },
         {
             "name": "ASCII Paint",
@@ -20,7 +20,7 @@
             ],
             "image": "asciiPaint.png",
             "shortDescription": "It's like Paint but ASCII",
-            "link": "../Projects/Swarm Simulation/index.html"
+            "link": "Projects/Swarm Simulation/index.html"
         },
         {
             "name": "Chatroom",
@@ -31,7 +31,7 @@
             ],
             "image": "chatroom.png",
             "shortDescription": "A Global Chat Room",
-            "link": "../Projects/Swarm Simulation/index.html"
+            "link": "Projects/Swarm Simulation/index.html"
         },
         {
             "name": "Discord Bot",
@@ -45,7 +45,7 @@
             ],
             "image": "chimken.png",
             "shortDescription": "B-Movie Discord Bot",
-            "link": "../Projects/Swarm Simulation/index.html"
+            "link": "Projects/Swarm Simulation/index.html"
         },
         {
             "name": "Emoji Checkers",
@@ -56,7 +56,7 @@
             ],
             "image": "checkers.png",
             "shortDescription": "Checkers but with Emojis",
-            "link": "../Projects/Emoji Checkers/index.html"
+            "link": "Projects/Emoji Checkers/index.html"
         },
         {
             "name": "Fish Tank",
@@ -68,7 +68,7 @@
             ],
             "image": "fish.png",
             "shortDescription": "Cookie Clicker but Fish",
-            "link": "../Projects/FishTank/index.html"
+            "link": "Projects/FishTank/index.html"
         },
         {
             "name": "Weather Website",
@@ -80,7 +80,7 @@
             ],
             "image": "weather.png",
             "shortDescription": "Just a Weather Website",
-            "link": "../Projects/WeatherWebsite/index.html"
+            "link": "Projects/WeatherWebsite/index.html"
         },
         {
             "name": "Swarm Simulator",
@@ -91,7 +91,7 @@
             ],
             "image": "swarmsim.png",
             "shortDescription": "A 'boid' program",
-            "link": "../Projects/Swarm Simulation/index.html"
+            "link": "Projects/Swarm Simulation/index.html"
         }
     ]
 }
