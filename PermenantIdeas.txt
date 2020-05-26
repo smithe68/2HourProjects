@@ -1,4 +1,3 @@
-- Project Site
 - Music Generator
 - Keyboard Keyboard
 - Project Dashboard
@@ -17,7 +16,6 @@
 - Text Adventure
 - Maze Solver
 - Tic-Tac-Toe Bot
-- Checkers
 - Twitter Bot
 - 2-D Renderer
 - Web Scraper
@@ -27,9 +25,7 @@
 - Geolocation website thing that plays differnet music depending on location
 - Nonsense website with no meaning that's only purpose is to look good and have no real functionality (aka Flex site)
 - Sizmic activity monitor
-- Something sciencey
 - Machine learning program that can tell you if something is a bird or not.
-- Maek company
 - In Browser Light Show
 - audio visualizer
 - keyboard drumset
@@ -43,3 +39,18 @@
 - Auto-Texter
 - Digital Whiteboard
 - Self-Information Home Page tells you everything about whats currently happening in your location
+- Cellular automata
+- Swarm Simulation
+- Train Game
+- Platformer Game
+- Tower Defense Game 
+- Budgeting web app
+- Tutorial Website
+- Mock Product/Sales Website
+- Fake stock investment game
+- Stock adviser website
+- Fake Travel Agency site
+- Habit Tracker Website
+- Flash Card Website
+- Graph Generator Website
+- 

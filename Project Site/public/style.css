@@ -147,8 +147,15 @@ nav button:hover {
     width: 100%;
     background-size: cover;
     border: 2px solid orange;
-    box-shadow: 0px 2px 8px orange;
+    cursor: pointer;
     height: 100%;
+    box-shadow: 0px 0px 0px orange;
+    transition: 0.1s;
+}
+
+.project-image:hover {
+    transition: 0.1s;
+    box-shadow: 0px 2px 8px orange;
 }
 
 /* Every other project */

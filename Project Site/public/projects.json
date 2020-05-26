@@ -3,12 +3,13 @@
         {
             "name": "ASCII Cube",
             "description": [
-                "ASCII cube was our first failure. The intention was to create a 3d render of an ascii cube",
-                "that would rotate and zoom in an out, following commands from given arrow keys. Needless to say this was ",
+                "ASCII cube was our first failure. The intention was to create a 3d render of an ascii cube\n",
+                "that would rotate and zoom in an out, following commands from given arrow keys. Needless to say this was\n",
                 "overly ambitious for only 2 hours"
             ],
             "image": "asciiCube.png",
-            "shortDescription": "The ASCII Cube Tragedy"
+            "shortDescription": "The ASCII Cube Tragedy",
+            "link": "../Projects/Swarm Simulation/index.html"
         },
         {
             "name": "ASCII Paint",
@@ -18,7 +19,8 @@
                 "brushes that can change the way you paint. It was a very fun project to work on and holds a special place in out heart\n"
             ],
             "image": "asciiPaint.png",
-            "shortDescription": "It's like Paint but ASCII"
+            "shortDescription": "It's like Paint but ASCII",
+            "link": "../Projects/Swarm Simulation/index.html"
         },
         {
             "name": "Chatroom",
@@ -28,7 +30,8 @@
                 "that wants to access the webpage. You can clear the chat by typing clear in the box though\n"
             ],
             "image": "chatroom.png",
-            "shortDescription": "A Global Chat Room"
+            "shortDescription": "A Global Chat Room",
+            "link": "../Projects/Swarm Simulation/index.html"
         },
         {
             "name": "Discord Bot",
@@ -41,7 +44,8 @@
                 "into big emojis\n"
             ],
             "image": "chimken.png",
-            "shortDescription": "B-Movie Discord Bot"
+            "shortDescription": "B-Movie Discord Bot",
+            "link": "../Projects/Swarm Simulation/index.html"
         },
         {
             "name": "Emoji Checkers",
@@ -51,7 +55,8 @@
                 "there isn't a bot so bring a frind too\n"
             ],
             "image": "checkers.png",
-            "shortDescription": "Checkers but with Emojis"
+            "shortDescription": "Checkers but with Emojis",
+            "link": "../Projects/Emoji Checkers/index.html"
         },
         {
             "name": "Fish Tank",
@@ -62,7 +67,8 @@
                 "Give it a try, and let us know if you can beat it...(you can btw it takes like 3 minutes).\n"
             ],
             "image": "fish.png",
-            "shortDescription": "Cookie Clicker but Fish"
+            "shortDescription": "Cookie Clicker but Fish",
+            "link": "../Projects/FishTank/index.html"
         },
         {
             "name": "Weather Website",
@@ -73,7 +79,19 @@
                 "but it was our first website that didn't look half bad..."
             ],
             "image": "weather.png",
-            "shortDescription": "Just a Weather Website"
+            "shortDescription": "Just a Weather Website",
+            "link": "../Projects/WeatherWebsite/index.html"
+        },
+        {
+            "name": "Swarm Simulator",
+            "description": [
+                "Swarm simulator takes a bunch of pixals, and makes them swarm around your mouse.\n",
+                "It look's pretty cool, we highly recommend you check it out if you get the chance\n ",
+                "Probobly the best looking project we have done.\n"
+            ],
+            "image": "swarmsim.png",
+            "shortDescription": "A 'boid' program",
+            "link": "../Projects/Swarm Simulation/index.html"
         }
     ]
 }

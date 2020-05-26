@@ -62,6 +62,8 @@ async function generateProjectDescriptions() {
         div.classList.add('project');
 
         image.classList.add('project-image');
+        image.onclick = () => location.href = projectJson.projects[i].link;
+
         name.classList.add('project-name');
         description.classList.add('project-description');
 
