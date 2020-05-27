@@ -41,8 +41,8 @@ async function setPage(index) {
         await generateProjectDescriptions();
         await advanceSlide(0, true);
 
-        $('#next').click(() => advanceSlide(1, true));
-        $('#back').click(() => advanceSlide(-1, true));
+        $('.next').click(() => advanceSlide(1, true));
+        $('.back').click(() => advanceSlide(-1, true));
     }
 
     localStorage.setItem('lastPage', index);
@@ -53,6 +53,8 @@ async function generateProjectDescriptions() {
     let $projects = $("#projects");
 
     for (let i = 0; i < projectJson.projects.length; i++) {
+        let project = projectJson.projects[i];
+
         let div = document.createElement('div');
         let name = document.createElement("h1");
         let image = document.createElement("div");
@@ -62,18 +64,21 @@ async function generateProjectDescriptions() {
         div.classList.add('project');
 
         image.classList.add('project-image');
-        image.onclick = () => location.href = projectJson.projects[i].link;
+
+        if (project.link !== "") {
+            image.onclick = () => window.open(project.link, "_blank");
+        }
 
         name.classList.add('project-name');
         description.classList.add('project-description');
 
-        let desc = projectJson.projects[i].description;
+        let desc = project.description;
         for (let j = 0; j < desc.length; j++) {
             description.innerHTML += desc[j];
         }
 
-        name.innerHTML = projectJson.projects[i].name;
-        image.style.backgroundImage = `url("images/${projectJson.projects[i].image}")`;
+        name.innerHTML = project.name;
+        image.style.backgroundImage = `url("images/${project.image}")`;
 
         section.append(name);
         section.append(description);

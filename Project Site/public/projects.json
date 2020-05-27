@@ -9,7 +9,7 @@
             ],
             "image": "asciiCube.png",
             "shortDescription": "The ASCII Cube Tragedy",
-            "link": "Projects/Swarm Simulation/index.html"
+            "link": ""
         },
         {
             "name": "ASCII Paint",
@@ -20,7 +20,7 @@
             ],
             "image": "asciiPaint.png",
             "shortDescription": "It's like Paint but ASCII",
-            "link": "Projects/Swarm Simulation/index.html"
+            "link": ""
         },
         {
             "name": "Chatroom",
@@ -31,7 +31,7 @@
             ],
             "image": "chatroom.png",
             "shortDescription": "A Global Chat Room",
-            "link": "Projects/Swarm Simulation/index.html"
+            "link": ""
         },
         {
             "name": "Discord Bot",
@@ -45,7 +45,7 @@
             ],
             "image": "chimken.png",
             "shortDescription": "B-Movie Discord Bot",
-            "link": "Projects/Swarm Simulation/index.html"
+            "link": ""
         },
         {
             "name": "Emoji Checkers",
