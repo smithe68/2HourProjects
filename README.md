@@ -10,7 +10,8 @@
 | Chimken (discord bot) | C# |
 | Chat Room | JS(Firebase) |
 | Weather App | Javascript |
-| Swarm Simulation | Javascript|
+| Swarm Simulation | Javascript |
+| Cellular Automata| Javascript |
 
 ## Almost
 | Project | Language | Reason |
