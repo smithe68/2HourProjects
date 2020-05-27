@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="index.js" defer></script>
+    <title>Cellular Automata</title>
+</head>
+
+<body>
+    <h2>Cellular Automata</h2>
+
+    <canvas width="1200" height="600">
+        <p>Your web browser does not support HTML5 canvas</p>
+    </canvas>
+
+    <div class="sliders">
+        <div class="slidecontainer">
+            <label for="maxColonies">Max Colonies: 4</label>
+            <input type="range" min="1" max="15" value="4" class="slider" id="maxColonies">
+        </div>
+
+        <div class="slidecontainer">
+            <label for="framerate">FPS: 30</label>
+            <input type="range" min="1" max="60" value="30" class="slider" id="framerate">
+        </div>
+
+    </div>
+    <button onclick="refreshWorld()">Refresh</button>
+
+</body>
+
+</html>

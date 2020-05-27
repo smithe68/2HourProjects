@@ -92,6 +92,17 @@
             "image": "swarmsim.png",
             "shortDescription": "A 'boid' program",
             "link": "Projects/Swarm Simulation/index.html"
+        },
+        {
+            "name": "CellularAutomata",
+            "description": [
+                "This is a recreation of the famous game of life created by John Horton Conway\n",
+                "In this version there are starting colonies, and 2 seperate color factions that are\n ",
+                "at war with each other. It's compleatly random, but we always root for red.\n"
+            ],
+            "image": "cells.png",
+            "shortDescription": "A project using cellular automata",
+            "link": "Projects/CellularAutomata/index.html"
         }
     ]
 }

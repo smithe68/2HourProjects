@@ -1,56 +1,87 @@
 - Music Generator
 - Keyboard Keyboard
+
 - Project Dashboard
 - Snake
+
 - Incrimental Game
 - Discord Clone
+
 - Shopping List
 - Novalty Website
+
 - Emulator
 - Content Aggrigation Website
+
 - Class Schedule
 - Planner Website
+
 - Secret Website
 - Fancy Timer
-- Voice to Text Software
+
 - Text Adventure
 - Maze Solver
-- Tic-Tac-Toe Bot
+
 - Twitter Bot
+
 - 2-D Renderer
 - Web Scraper
+
 - Calculator Website
 - Tip Calculator
+
 - Fake Web OS
 - Geolocation website thing that plays differnet music depending on location
+
 - Nonsense website with no meaning that's only purpose is to look good and have no real functionality (aka Flex site)
 - Sizmic activity monitor
+
 - Machine learning program that can tell you if something is a bird or not.
 - In Browser Light Show
+
 - audio visualizer
 - keyboard drumset
+
 - VS code extension
 - Quine
+
 - Pong
 - Tetris
+
 - Chess
 - point and click game
+
 - Flash card program
 - Auto-Texter
+
 - Digital Whiteboard
 - Self-Information Home Page tells you everything about whats currently happening in your location
+
 - Cellular automata
-- Swarm Simulation
+
 - Train Game
 - Platformer Game
+
 - Tower Defense Game 
 - Budgeting web app
+
 - Tutorial Website
 - Mock Product/Sales Website
+
 - Fake stock investment game
 - Stock adviser website
+
 - Fake Travel Agency site
 - Habit Tracker Website
+
 - Flash Card Website
 - Graph Generator Website
-- 
+
+- Sand Simulation
+- Word Cloud Generator
+
+- Meditation Noises Dashboard
+- 2d physics Simulation
+
+- How Many _____ Am I Near
+- Chrome/Firefox extension
