@@ -18,15 +18,17 @@
     </canvas>
 
     <div class="sliders">
-        <div class="slidecontainer">
-            <label for="maxColonies">Max Colonies: 4</label>
-            <input type="range" min="1" max="15" value="4" class="slider" id="maxColonies">
-        </div>
+        <label for="cellSize">Cell Size: 4</label>
+        <input type="range" min="2" max="8" value="4" class="slider" id="cellSize">
 
-        <div class="slidecontainer">
-            <label for="framerate">FPS: 30</label>
-            <input type="range" min="1" max="60" value="30" class="slider" id="framerate">
-        </div>
+        <label for="maxColonies">Max Colonies: 4</label>
+        <input type="range" min="1" max="15" value="4" class="slider" id="maxColonies">
+
+        <label for="colonySize">Max Colony Size: 16</label>
+        <input type="range" min="1" max="64" value="16" class="slider" id="colonySize">
+
+        <label for="framerate">FPS: 60</label>
+        <input type="range" min="1" max="60" value="60" class="slider" id="framerate">
 
     </div>
     <button onclick="refreshWorld()">Refresh</button>

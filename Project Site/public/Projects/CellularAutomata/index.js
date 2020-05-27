@@ -1,61 +1,63 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-const cellSize = 8;
-const maxColonySize = 12;
-let numOfColonies = $("#maxColonies").val();
-let fps = $("#framerate").val();
+const $maxColonies = $('#maxColonies');
+const $colonySize = $('#colonySize');
+const $framerate = $("#framerate");
+const $cellSize = $("#cellSize");
 
-const deadColor = "rgb(155, 255, 155)";
+let cellSize = $cellSize.val();
+let maxColonySize = $colonySize.val();
+let numOfColonies = $maxColonies.val();
+let fps = $framerate.val();
+
+const bgColor = "rgb(155, 255, 155)";
 const blueColor = "blue";
 const redColor = "red";
 
-const width = ctx.canvas.clientWidth / cellSize;
-const height = ctx.canvas.clientHeight / cellSize;
+let width = ctx.canvas.clientWidth / cellSize;
+let height = ctx.canvas.clientHeight / cellSize;
 
 const cells = [];
+const cellNeighbors = [];
 
-$("#maxColonies").on('change', () => {
-    let value = $('#maxColonies').val();
+$cellSize.change(() => {
+    let value = $cellSize.val();
+    $("label[for='cellSize']").html(`Cell Size: ${value}`);
+    cellSize = value;
+    width = ctx.canvas.clientWidth / cellSize;
+    height = ctx.canvas.clientHeight / cellSize;
+    generateWorld();
+    refreshWorld();
+});
+
+
+$colonySize.change(() => {
+    let value = $colonySize.val();
+    $("label[for='colonySize']").html(`Max Colony Size: ${value}`);
+    maxColonySize = value;
+    refreshWorld();
+});
+
+$maxColonies.change(() => {
+    let value = $maxColonies.val();
     $("label[for='maxColonies']").html(`Max Colonies: ${value}`);
     numOfColonies = value;
+    refreshWorld();
 });
 
-$("#framerate").on('change', () => {
-    let value = $('#framerate').val();
+$framerate.change(() => {
+    let value = $framerate.val();
     $("label[for='framerate']").html(`FPS: ${value}`);
     fps = value;
+    refreshWorld();
 });
-
-class Cell {
-    constructor(isAlive, color) {
-        this.isAlive = isAlive;
-        this.color = color;
-    }
-
-    render(x, y) {
-        ctx.fillStyle = this.color;
-        ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-    }
-
-    kill() {
-        this.isAlive = false;
-        this.color = deadColor;
-    }
-
-    birth(color) {
-        this.isAlive = true;
-        this.color = color;
-    }
-}
 
 function setCell(x, y, cell) { cells[y * width + x] = cell; }
 function getCell(x, y) { return cells[y * width + x]; }
 
 function refreshWorld() {
-    for (let i = 0; i < width * height; i++) {
-        cells[i].kill();
-    }
+    for (let i = 0; i < width * height; i++) { cells[i] = 0; }
 
     for (let k = 0; k < numOfColonies; k++) {
 
@@ -68,8 +70,8 @@ function refreshWorld() {
                 let dy = j - locY;
                 let dx = i - locX;
                 let dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < size) {
-                    getCell(i, j).birth(k % 2 == 0 ? blueColor : redColor);
+                if (dist <= size) {
+                    setCell(i, j, k % 2 == 0 ? 1 : 2);
                 }
             }
         }
@@ -78,101 +80,81 @@ function refreshWorld() {
 
 function generateWorld() {
     for (let i = 0; i < width * height; i++) {
-        cells.push(new Cell(false, deadColor));
+        cells.push(0);
     }
 }
-
-const Direction = {
-    RIGHT: 0,
-    LEFT: 1,
-    UP: 2,
-    DOWN: 3,
-    TOP_RIGHT: 4,
-    BOTTOM_RIGHT: 5,
-    TOP_LEFT: 6,
-    BOTTOM_LEFT: 7
-};
 
 function getNeighbors(x, y) {
-    let neighbors = [];
-
-    neighbors.push(getCell(x + 1, y)); //right
-    neighbors.push(getCell(x - 1, y)); //left
-
-    neighbors.push(getCell(x, y + 1)); // up
-    neighbors.push(getCell(x, y - 1)); // down
-
-    neighbors.push(getCell(x + 1, y + 1)) // top right
-    neighbors.push(getCell(x + 1, y - 1)) // bottom right
-
-    neighbors.push(getCell(x - 1, y + 1)) // top left
-    neighbors.push(getCell(x - 1, y - 1)) // bottom left
-
-    return neighbors;
+    return [
+        getCell(x + 1, y),
+        getCell(x - 1, y),
+        getCell(x, y + 1),
+        getCell(x, y - 1),
+        getCell(x + 1, y + 1),
+        getCell(x + 1, y - 1),
+        getCell(x - 1, y + 1),
+        getCell(x - 1, y - 1)
+    ];
 }
 
-function countNeighbors(neighbors) {
-    let count = 0;
-    for (let i = 0; i < neighbors.length; i++) {
-        if (neighbors[i] !== undefined && neighbors[i].isAlive) { count++; }
-    }
-    return count;
-}
+function getNeighborInfo(x, y) {
+    let totalAlive = 0;
+    let totalEnemy = 0;
 
-function enemyKillChance(neighbors, cell) {
-    let count = 0;
-    for (let i = 0; i < neighbors.length; i++) {
-        if (neighbors[i] !== undefined && neighbors[i].color != cell.color && neighbors[i].isAlive) { count++; }
-    }
-    return count;
-}
+    let totalRed = 0;
+    let totalBlue = 0;
 
-function getNeighborColor(neighbors) {
-    let redCount = 0;
-    let blueCount = 0;
-    for (let i = 0; i < neighbors.length; i++) {
-        if (neighbors[i] !== undefined) {
-            if (neighbors[i].color == blueColor) blueCount += 1;
-            if (neighbors[i].color == redColor) redCount += 1;
+    let cell = getCell(x, y);
+    getNeighbors(x, y).forEach(neighbor => {
+        if (neighbor !== undefined && neighbor !== 0) {
+            totalAlive++;
+            if (neighbor !== cell) totalEnemy++;
+            if (neighbor === 1) totalBlue++;
+            else totalRed++;
         }
-    }
+    });
 
-    return redCount > blueCount ? redColor : blueColor;
+    return {
+        totalAlive,
+        dominantTeam: totalBlue > totalRed ? 1 : 2,
+        totalEnemy
+    };
 }
 
 function loop() {
-    ctx.fillStyle = 'rgb(0, 0, 0)';
+    ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
 
     for (let x = 0; x < width; x++) {
         for (let y = 0; y < height; y++) {
             let cell = getCell(x, y);
-            let neighbors = getNeighbors(x, y);
-            let count = countNeighbors(neighbors);
+            let isAlive = cell !== 0;
 
-            if (!(cell.isAlive && (count === 3 || count === 2))) {
-                cell.kill();
+            let { totalAlive, totalEnemy, dominantTeam } = getNeighborInfo(x, y);
+
+            // If cell is dead I dont care
+            if (totalAlive === 0) continue;
+
+            // Underpopulation and Overpopulation
+            if (isAlive && (totalAlive === 2 || totalAlive > 4)) { setCell(x, y, 0) }
+
+            // Birth
+            if (!isAlive && totalAlive === 3) { setCell(x, y, dominantTeam); }
+
+            // Team Fighting
+            if (isAlive && totalEnemy > Math.random() * 4) { setCell(x, y, 0); }
+
+            // Rendering
+            ctx.fillStyle = cell === 1 ? blueColor : redColor;
+            if (cell !== 0) {
+                ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize)
             }
-
-            if (!cell.isAlive && count === 3) {
-                cell.birth(getNeighborColor(neighbors));
-            }
-
-            if (Math.random() * 3 < enemyKillChance(neighbors, cell)) {
-                cell.kill();
-            }
-
-            if (Math.random() > .99) {
-                cell.kill();
-            }
-
-            cell.render(x, y);
         }
-
     }
 
     setTimeout(loop, 1000 / fps);
 }
 
 generateWorld();
+refreshWorld();
 requestAnimationFrame(loop);
