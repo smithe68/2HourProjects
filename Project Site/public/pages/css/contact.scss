@@ -49,3 +49,9 @@
         margin: 0.5rem 0rem;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .contactInfo {
+        grid-template-columns: 1fr;
+    }
+}

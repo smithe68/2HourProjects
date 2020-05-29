@@ -63,4 +63,11 @@
 .info * {
   margin: 0.5rem 0rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .contactInfo {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
 /*# sourceMappingURL=contact.css.map */
