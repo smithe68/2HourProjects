@@ -56,7 +56,7 @@
             ],
             "image": "checkers.png",
             "shortDescription": "Checkers but with Emojis",
-            "link": "Projects/Emoji Checkers/index.html"
+            "link": "projects/Emoji Checkers/index.html"
         },
         {
             "name": "Fish Tank",
@@ -68,7 +68,7 @@
             ],
             "image": "fish.png",
             "shortDescription": "Cookie Clicker but Fish",
-            "link": "Projects/FishTank/index.html"
+            "link": "projects/FishTank/index.html"
         },
         {
             "name": "Weather Website",
@@ -80,7 +80,7 @@
             ],
             "image": "weather.png",
             "shortDescription": "Just a Weather Website",
-            "link": "Projects/WeatherWebsite/index.html"
+            "link": "projects/WeatherWebsite/index.html"
         },
         {
             "name": "Swarm Simulator",
@@ -91,7 +91,7 @@
             ],
             "image": "swarmsim.png",
             "shortDescription": "A 'boid' program",
-            "link": "Projects/Swarm Simulation/index.html"
+            "link": "projects/Swarm Simulation/index.html"
         },
         {
             "name": "Cellular Automata",
@@ -102,7 +102,7 @@
             ],
             "image": "cells.png",
             "shortDescription": "A project using cellular automata",
-            "link": "Projects/CellularAutomata/index.html"
+            "link": "projects/CellularAutomata/index.html"
         }
     ]
 }
