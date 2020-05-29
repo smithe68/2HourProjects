@@ -1,0 +1,66 @@
+.about {
+  display: -ms-grid;
+  display: grid;
+  text-align: justify;
+  line-height: 1.75rem;
+}
+
+.contactInfo {
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+  line-height: 1rem;
+}
+
+.github {
+  -webkit-filter: brightness(0.91);
+          filter: brightness(0.91);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+  -webkit-transition: 0.1s ease 0s;
+  transition: 0.1s ease 0s;
+}
+
+.github:hover {
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+  -webkit-transition: 0.05s ease 0s;
+  transition: 0.05s ease 0s;
+  text-decoration: underline;
+}
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info img {
+  width: 256px;
+  height: 256px;
+  border-radius: 10px;
+}
+
+.info * {
+  margin: 0.5rem 0rem;
+}
+/*# sourceMappingURL=contact.css.map */

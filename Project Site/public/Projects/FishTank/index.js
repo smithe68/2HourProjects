@@ -180,7 +180,7 @@ let storyIntCurrent = 0;
 let tankSize = 10;
 let inTankSize = 0;
 
-let fishTank = [ [], [], [], [], [], [], [] ];
+let fishTank = [[], [], [], [], [], [], []];
 
 function addToFishTank(name, size, popularity, type) {
 	let li = document.createElement('li');
@@ -202,6 +202,18 @@ function addToFishTank(name, size, popularity, type) {
 	document.getElementById('capacity').innerHTML = `capacity: ${inTankSize.toFixed(2)}/${tankSize.toFixed(2)}`;
 }
 
+
+const fishTypes = {
+	'Guppy': [1, 1, 1],
+	'Goldfish': [10, 4, 4],
+	'Salmon': [80, 67, 6],
+	'Ray': [169, 88, 6],
+	'Dolphin': [300, 500, 80],
+	'Shark': [1000, 4000, 200],
+	'Whale': [10000, 40000, 2000],
+};
+
+
 function upgradeTankSize() {
 	if (currentMoney >= 2 * tankSize) {
 		tankSize += 10;
@@ -209,48 +221,17 @@ function upgradeTankSize() {
 		document.getElementById('capacity').innerHTML = `capacity: ${inTankSize.toFixed(2)}/${tankSize.toFixed(2)}`;
 	}
 }
-function buyGuppies() {
-	if (currentMoney >= 1 && tankSize > inTankSize) {
-		fishTank[0].push(new FishType(getFishName(), 1, 1, 1, 'Guppy'));
-		currentMoney -= 1;
+
+function buyFishType(type) {
+	const fishStats = fishTypes[type];
+	const keys = Object.keys(fishTypes);
+
+	if (currentMoney >= fishStats[0] && tankSize > inTankSize) {
+		fishTank[keys.indexOf(type)].push(new FishType(getFishName(), fishStats[0], fishStats[1], fishStats[2], type));
+		currentMoney -= fishStats[0];
 	}
 }
-function buyGoldfish() {
-	if (currentMoney >= 4 && tankSize > inTankSize) {
-		fishTank[1].push(new FishType(getFishName(), 10, 4, 4, 'Goldfish'));
-		currentMoney -= 4;
-	}
-}
-function buySalmon() {
-	if (currentMoney >= 80 && tankSize > inTankSize) {
-		fishTank[2].push(new FishType(getFishName(), 80, 67, 6, 'Salmon'));
-		currentMoney -= 80;
-	}
-}
-function buyRays() {
-	if (currentMoney >= 169 && tankSize > inTankSize) {
-		fishTank[3].push(new FishType(getFishName(), 169, 88, 6, 'Ray'));
-		currentMoney -= 169;
-	}
-}
-function buyDolphins() {
-	if (currentMoney >= 300 && tankSize > inTankSize) {
-		fishTank[4].push(new FishType(getFishName(), 300, 500, 80, 'Dolphin'));
-		currentMoney -= 300;
-	}
-}
-function buyShark() {
-	if (currentMoney >= 1000 && tankSize > inTankSize) {
-		fishTank[5].push(new FishType(getFishName(), 1000, 4000, 200, 'Shark'));
-		currentMoney -= 1000;
-	}
-}
-function buyWhale() {
-	if (currentMoney >= 10000 && tankSize > inTankSize) {
-		fishTank[6].push(new FishType(getFishName(), 10000, 40000, 2000, 'Whale'));
-		currentMoney -= 10000;
-	}
-}
+
 
 class FishType {
 	constructor(fishname, cost, popularity, size, type) {

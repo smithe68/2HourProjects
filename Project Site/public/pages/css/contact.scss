@@ -1,0 +1,51 @@
+.about {
+    display: grid;
+    text-align: justify;
+    line-height: 1.75rem;
+}
+
+.contactInfo {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.name {
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    line-height: 1rem;
+}
+
+.github {
+    filter: brightness(.91);
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.1s ease 0s;
+
+    &:hover {
+        transform: scale(1.025);
+        transition: 0.05s ease 0s;
+        text-decoration: underline;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 256px;
+        height: 256px;
+        border-radius: 10px;
+    }
+
+    * {
+        margin: 0.5rem 0rem;
+    }
+}
