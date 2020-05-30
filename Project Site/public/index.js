@@ -5,15 +5,16 @@ const pages = ["home", "contact"];
 
 async function advanceSlide(dir, isUserClick) {
     let speed = isUserClick ? "fast" : "slow";
-
     let projectsJson = await grabProjectJson();
+    let $image = $('.slideshow-image');
+
     projects = projectsJson.projects;
 
     slideIndex += dir;
+
     if (slideIndex >= projects.length) slideIndex = 0;
     else if (slideIndex < 0) slideIndex = projects.length - 1;
 
-    let $image = $('.slideshow-image');
     $image.fadeOut(speed, () => {
         const url = `url("./images/${projects[slideIndex].image}")`;
         $image.css('background-image', url);
@@ -51,41 +52,61 @@ async function setPage(index) {
 async function generateProjectDescriptions() {
     let projectJson = await grabProjectJson();
     let $projects = $("#projects");
+    let successes = projectJson.projects.filter(p => !p.failure);
+    let failures = projectJson.projects.filter(p => p.failure);
 
-    for (let i = 0; i < projectJson.projects.length; i++) {
-        let project = projectJson.projects[i];
+    let heading = document.createElement('h1');
 
+    heading.classList.add('heading');
+    heading.innerHTML = "Successes";
+
+    $projects.append(heading);
+
+    const appendProject = (project) => {
         let div = document.createElement('div');
         let name = document.createElement("h1");
-        let image = document.createElement("div");
         let description = document.createElement("p");
+        let image = document.createElement("div");
         let section = document.createElement('section');
 
-        div.classList.add('project');
+        let desc = project.description;
 
+        div.classList.add('project');
+        name.classList.add('project-name');
+        description.classList.add('project-description');
         image.classList.add('project-image');
+
+        name.innerHTML = project.name;
+        image.style.backgroundImage = `url("images/${project.image}")`;
 
         if (project.link !== "") {
             image.onclick = () => window.open(project.link, "_blank");
         }
 
-        name.classList.add('project-name');
-        description.classList.add('project-description');
-
-        let desc = project.description;
         for (let j = 0; j < desc.length; j++) {
             description.innerHTML += desc[j];
         }
-
-        name.innerHTML = project.name;
-        image.style.backgroundImage = `url("images/${project.image}")`;
 
         section.append(name);
         section.append(description);
 
         div.append(image);
         div.append(section);
+
         $projects.append(div);
+    };
+
+    for (let i = 0; i < successes.length; i++) {
+        appendProject(successes[i]);
+    }
+
+    heading = document.createElement('h1');
+    heading.classList.add('heading');
+    heading.innerHTML = "Failures";
+    $projects.append(heading);
+
+    for (let i = 0; i < failures.length; i++) {
+        appendProject(failures[i]);
     }
 }
 

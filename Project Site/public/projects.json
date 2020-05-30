@@ -9,7 +9,8 @@
             ],
             "image": "asciiCube.png",
             "shortDescription": "The ASCII Cube Tragedy",
-            "link": ""
+            "link": "",
+            "failure": true
         },
         {
             "name": "ASCII Paint",
@@ -20,7 +21,8 @@
             ],
             "image": "asciiPaint.png",
             "shortDescription": "It's like Paint but ASCII",
-            "link": ""
+            "link": "",
+            "failure": false
         },
         {
             "name": "Chatroom",
@@ -31,7 +33,8 @@
             ],
             "image": "chatroom.png",
             "shortDescription": "A Global Chat Room",
-            "link": ""
+            "link": "",
+            "failure": false
         },
         {
             "name": "Discord Bot",
@@ -45,7 +48,8 @@
             ],
             "image": "chimken.png",
             "shortDescription": "B-Movie Discord Bot",
-            "link": ""
+            "link": "",
+            "failure": false
         },
         {
             "name": "Emoji Checkers",
@@ -56,7 +60,8 @@
             ],
             "image": "checkers.png",
             "shortDescription": "Checkers but with Emojis",
-            "link": "projects/Emoji Checkers/index.html"
+            "link": "projects/Emoji Checkers/index.html",
+            "failure": false
         },
         {
             "name": "Fish Tank",
@@ -68,7 +73,8 @@
             ],
             "image": "fish.png",
             "shortDescription": "Cookie Clicker but Fish",
-            "link": "projects/FishTank/index.html"
+            "link": "projects/FishTank/index.html",
+            "failure": false
         },
         {
             "name": "Weather Website",
@@ -80,7 +86,8 @@
             ],
             "image": "weather.png",
             "shortDescription": "Just a Weather Website",
-            "link": "projects/WeatherWebsite/index.html"
+            "link": "projects/WeatherWebsite/index.html",
+            "failure": false
         },
         {
             "name": "Swarm Simulator",
@@ -91,7 +98,8 @@
             ],
             "image": "swarmsim.png",
             "shortDescription": "A 'boid' program",
-            "link": "projects/Swarm Simulation/index.html"
+            "link": "projects/Swarm Simulation/index.html",
+            "failure": false
         },
         {
             "name": "Cellular Automata",
@@ -102,7 +110,8 @@
             ],
             "image": "cells.png",
             "shortDescription": "A project using cellular automata",
-            "link": "projects/CellularAutomata/index.html"
+            "link": "projects/CellularAutomata/index.html",
+            "failure": false
         },
         {
             "name": "Text Game",
@@ -114,7 +123,8 @@
             ],
             "image": "text.png",
             "shortDescription": "A simple text game",
-            "link": "projects/TextAdventure/index.html"
+            "link": "projects/TextAdventure/index.html",
+            "failure": true
         }
     ]
 }
