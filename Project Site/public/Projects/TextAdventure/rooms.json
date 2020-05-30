@@ -1,0 +1,112 @@
+{
+    "rooms": [
+        {
+            "name": "Generic Cave Room",
+            "desc": "You see a generic cave room. It is very cavy",
+            "items": [
+                "rock"
+            ],
+            "enemies": [
+                "Basic"
+            ],
+            "interactables": [
+                "rock"
+            ]
+        },
+        {
+            "name": "Void",
+            "desc": "You see a room with nothing in it save for a single large hole of unknowable depth.",
+            "items": [
+                ""
+            ],
+            "enemies": [
+                ""
+            ],
+            "interactables": [
+                "hole"
+            ]
+        },
+        {
+            "name": "lower Treasure Room",
+            "desc": "You see a  treasure chest",
+            "items": [
+                "potion"
+            ],
+            "enemies": [
+                ""
+            ],
+            "interactables": [
+                "chest"
+            ]
+        },
+        {
+            "name": "moderate Treasure Room",
+            "desc": "You see a treasure chest as well as a few items",
+            "items": [
+                "potion",
+                "armor"
+            ],
+            "enemies": [
+                ""
+            ],
+            "interactables": [
+                "chest"
+            ]
+        },
+        {
+            "name": "High Treasure Room",
+            "desc": "You see a treasure chest as well as many wonderful items",
+            "items": [
+                "potion",
+                "armor",
+                "sword",
+                "boots"
+            ],
+            "enemies": [
+                "Moderate"
+            ],
+            "interactables": [
+                "Chest"
+            ]
+        },
+        {
+            "name": "basic enemy room",
+            "desc": "You see a few weaklings time to show your might",
+            "items": [],
+            "enemies": [
+                "Basic",
+                "Basic"
+            ],
+            "interactables": []
+        },
+        {
+            "name": "moderate enemy room",
+            "desc": "You see some formidable foes looks like you're in for a challenge",
+            "items": [],
+            "enemies": [
+                "Moderate",
+                "Moderate"
+            ],
+            "interactables": []
+        },
+        {
+            "name": "Advanced enemy room",
+            "desc": "You see a few foes more powerful then you can even begin to imagine",
+            "items": [],
+            "enemies": [
+                "Advanced",
+                "Advanced"
+            ],
+            "interactables": []
+        },
+        {
+            "name": "Boss Room",
+            "desc": "He smirks as he looks at you... Pitiful fool your strength isn't even enough to witness my true form. The Boss ~Approaches~",
+            "items": [],
+            "enemies": [
+                "Boss"
+            ],
+            "interactables": []
+        }
+    ]
+}

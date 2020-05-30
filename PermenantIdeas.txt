@@ -13,13 +13,11 @@
 - Emulator
 - Content Aggrigation Website
 
-- Class Schedule
 - Planner Website
 
 - Secret Website
 - Fancy Timer
 
-- Text Adventure
 - Maze Solver
 
 - Twitter Bot
@@ -57,8 +55,6 @@
 - Digital Whiteboard
 - Self-Information Home Page tells you everything about whats currently happening in your location
 
-- Cellular automata
-
 - Train Game
 - Platformer Game
 
@@ -83,5 +79,19 @@
 - Meditation Noises Dashboard
 - 2d physics Simulation
 
-- How Many _____ Am I Near
 - Chrome/Firefox extension
+
+- Motivational website
+- Outdoors simulatior 
+
+- Celebrity Death Tracker
+- Celebrity Death Predicter
+
+- Magic 8 ball
+- Daily Horiscope
+
+- Zombie Game
+- Vampire Game
+
+- Fire game
+- Fire simulator

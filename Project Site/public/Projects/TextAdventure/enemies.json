@@ -1,0 +1,100 @@
+{
+    "enemies": [
+        {
+            "name": "Slime",
+            "hitPoints": 10,
+            "strength": 5,
+            "type": "Basic"
+        },
+        {
+            "name": "Rat",
+            "hitPoints": 15,
+            "strength": 8,
+            "type": "Basic"
+        },
+        {
+            "name": "Bat",
+            "hitPoints": 6,
+            "strength": 3,
+            "type": "Basic"
+        },
+        {
+            "name": "Rock Crab",
+            "hitPoints": 20,
+            "strength": 2,
+            "type": "Basic"
+        },
+        {
+            "name": "Goblin",
+            "hitPoints": 35,
+            "strength": 10,
+            "type": "Moderate"
+        },
+        {
+            "name": "Troll",
+            "hitPoints": 40,
+            "strength": 12,
+            "type": "Moderate"
+        },
+        {
+            "name": "Skeleton",
+            "hitPoints": 25,
+            "strength": 12,
+            "type": "Moderate"
+        },
+        {
+            "name": "Bandit",
+            "hitPoints": 40,
+            "strength": 15,
+            "type": "Moderate"
+        },
+        {
+            "name": "Ogre",
+            "hitPoints": 60,
+            "strength": 20,
+            "type": "Advanced"
+        },
+        {
+            "name": "Atronach",
+            "hitPoints": 55,
+            "strength": 18,
+            "type": "Advanced"
+        },
+        {
+            "name": "Giant",
+            "hitPoints": 65,
+            "strength": 22,
+            "type": "Advanced"
+        },
+        {
+            "name": "Small Wyvern",
+            "hitPoints": 70,
+            "strength": 30,
+            "type": "Advanced"
+        },
+        {
+            "name": "Centipede Bear",
+            "hitPoints": 150,
+            "strength": 25,
+            "type": "Boss"
+        },
+        {
+            "name": "Eldritch Being",
+            "hitPoints": 600,
+            "strength": 10,
+            "type": "Boss"
+        },
+        {
+            "name": "UNKNOWN",
+            "hitPoints": 50,
+            "strength": 9999,
+            "type": "Boss"
+        },
+        {
+            "name": "The End",
+            "hitPoints": 300,
+            "strength": 55,
+            "type": "Boss"
+        }
+    ]
+}

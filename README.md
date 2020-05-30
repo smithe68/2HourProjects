@@ -23,3 +23,4 @@
 | Project | Language | Reason |
 | ------- | -------- | ------ |
 | Cube    | C        | 3D ASCII in C is too difficult for a two hours project |
+| Text Adventure | TypeScript | A fully fledged text game is too much for 2 hours |

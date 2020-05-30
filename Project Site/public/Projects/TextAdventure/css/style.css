@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+}
+
+input {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  background: #646464;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  color: whitesmoke;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+#desc {
+  text-align: center;
+  color: black;
+}
+
+#roomName {
+  text-align: center;
+  color: black;
+}
+
+#state {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+/*# sourceMappingURL=style.css.map */

@@ -51,8 +51,8 @@
             "name": "Emoji Checkers",
             "description": [
                 "I mean its basic checkers, but with a few exceptions. You can't multi-jump, and you are not forced to make\n",
-                "a move if you can we could have implimented them, but we ran out of time give it a try if you want \n",
-                "there isn't a bot so bring a frind too\n"
+                "a move if you can we could have implemented them, but we ran out of time give it a try if you want \n",
+                "there isn't a bot so bring a friend too\n"
             ],
             "image": "checkers.png",
             "shortDescription": "Checkers but with Emojis",
@@ -61,7 +61,7 @@
         {
             "name": "Fish Tank",
             "description": [
-                "Incrimental games our a guilty pleasure of ours so of course we had to make one\n",
+                "Incremental games our a guilty pleasure of ours so of course we had to make one\n",
                 "it's uhh not very good... 2 hours isn't really enough time to balance a game, and being our first project\n",
                 "in javascript it looks pretty ugly too, but it works so thats about as much as we could ask for.\n",
                 "Give it a try, and let us know if you can beat it...(you can btw it takes like 3 minutes).\n"
@@ -73,9 +73,9 @@
         {
             "name": "Weather Website",
             "description": [
-                "This one is probobly one of the most functional websites we have built. It tells you the weather\n",
-                "given that you allow location settings. It works by grabing your coordinates from a geolocation api, and then\n ",
-                "it uses those to grab the local weather forcast from a government wheather registery, it isn't the prettiest\n",
+                "This one is probably one of the most functional websites we have built. It tells you the weather\n",
+                "given that you allow location settings. It works by grabbing your coordinates from a geo location api, and then\n ",
+                "it uses those to grab the local weather forecast from a government weather registry, it isn't the prettiest\n",
                 "but it was our first website that didn't look half bad..."
             ],
             "image": "weather.png",
@@ -85,9 +85,9 @@
         {
             "name": "Swarm Simulator",
             "description": [
-                "Swarm simulator takes a bunch of pixals, and makes them swarm around your mouse.\n",
+                "Swarm simulator takes a bunch of pixels, and makes them swarm around your mouse.\n",
                 "It look's pretty cool, we highly recommend you check it out if you get the chance\n ",
-                "Probobly the best looking project we have done.\n"
+                "Probably the best looking project we have done.\n"
             ],
             "image": "swarmsim.png",
             "shortDescription": "A 'boid' program",
@@ -97,12 +97,24 @@
             "name": "Cellular Automata",
             "description": [
                 "This is a recreation of the famous game of life created by John Horton Conway\n",
-                "In this version there are starting colonies, and 2 seperate color factions that are\n ",
-                "at war with each other. It's compleatly random, but we always root for red.\n"
+                "In this version there are starting colonies, and 2 separate color factions that are\n ",
+                "at war with each other. It's completely random, but we always root for red.\n"
             ],
             "image": "cells.png",
             "shortDescription": "A project using cellular automata",
             "link": "projects/CellularAutomata/index.html"
+        },
+        {
+            "name": "Text Game",
+            "description": [
+                "This one counts as our second failure. A fully fledged text game in 2 hours is a little more than we can handle.\n",
+                "To test it out though type options to see a list of all the commands you have.\n ",
+                "We could not implement items, treasures rooms, the void, or a story sadly. But, you can still fight the enemies\n",
+                "and work your way up to the boss\n"
+            ],
+            "image": "text.png",
+            "shortDescription": "A simple text game",
+            "link": "projects/TextAdventure/index.html"
         }
     ]
 }
