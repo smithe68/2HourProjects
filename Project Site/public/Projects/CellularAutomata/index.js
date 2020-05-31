@@ -5,11 +5,14 @@ const $maxColonies = $('#maxColonies');
 const $colonySize = $('#colonySize');
 const $framerate = $("#framerate");
 const $cellSize = $("#cellSize");
+const $performance = $('#performance');
 
 let cellSize = $cellSize.val();
 let maxColonySize = $colonySize.val();
 let numOfColonies = $maxColonies.val();
 let fps = $framerate.val();
+
+let lastTime = 0;
 
 const bgColor = "rgb(155, 255, 155)";
 const blueColor = "blue";
@@ -21,16 +24,19 @@ let height = ctx.canvas.clientHeight / cellSize;
 const cells = [];
 const cellNeighbors = [];
 
+let drawTarget = new ImageData(width, height);
+ctx.imageSmoothingEnabled = false;
+
 $cellSize.change(() => {
     let value = $cellSize.val();
     $("label[for='cellSize']").html(`Cell Size: ${value}`);
     cellSize = value;
     width = ctx.canvas.clientWidth / cellSize;
     height = ctx.canvas.clientHeight / cellSize;
+    drawTarget = new ImageData(width, height);
     generateWorld();
     refreshWorld();
 });
-
 
 $colonySize.change(() => {
     let value = $colonySize.val();
@@ -53,8 +59,23 @@ $framerate.change(() => {
     refreshWorld();
 });
 
-function setCell(x, y, cell) { cells[y * width + x] = cell; }
-function getCell(x, y) { return cells[y * width + x]; }
+function inBounds(x, y) {
+    return x >= 0 && x < width && y >= 0 && y < height;
+}
+
+function setCell(x, y, cell) {
+    if (inBounds(x, y)) {
+        cells[y * width + x] = cell;
+    }
+}
+
+function getCell(x, y) {
+    if (inBounds(x, y)) {
+        return cells[y * width + x];
+    } else {
+        return 0;
+    }
+}
 
 function refreshWorld() {
     for (let i = 0; i < width * height; i++) { cells[i] = 0; }
@@ -106,7 +127,7 @@ function getNeighborInfo(x, y) {
 
     let cell = getCell(x, y);
     getNeighbors(x, y).forEach(neighbor => {
-        if (neighbor !== undefined && neighbor !== 0) {
+        if (neighbor !== 0) {
             totalAlive++;
             if (neighbor !== cell) totalEnemy++;
             if (neighbor === 1) totalBlue++;
@@ -121,9 +142,24 @@ function getNeighborInfo(x, y) {
     };
 }
 
-function loop() {
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
+async function loop() {
+    lastTime = performance.now();
+
+    // Clear the Canvas
+    for (let i = 0; i < width * height * 4; i += 4) {
+        drawTarget.data[i] = 155;
+        drawTarget.data[i + 1] = 255;
+        drawTarget.data[i + 2] = 155;
+        drawTarget.data[i + 3] = 255;
+    }
+
+    const fillRect = (x, y, color) => {
+        let d = (y * width + x) * 4;
+        drawTarget.data[d] = color.r;
+        drawTarget.data[d + 1] = color.g;
+        drawTarget.data[d + 2] = color.b;
+        drawTarget.data[d + 3] = color.a;
+    };
 
     for (let x = 0; x < width; x++) {
         for (let y = 0; y < height; y++) {
@@ -132,26 +168,36 @@ function loop() {
 
             let { totalAlive, totalEnemy, dominantTeam } = getNeighborInfo(x, y);
 
-            // If cell is dead I dont care
-            if (totalAlive === 0) continue;
+            if (isAlive) {
+                // Under population, Overpopulation, and Team Fighting
+                if (totalAlive < 2 || totalAlive > 3 ||
+                    totalEnemy > Math.random() * 4) {
+                    setCell(x, y, 0);
+                }
 
-            // Underpopulation and Overpopulation
-            if (isAlive && (totalAlive === 2 || totalAlive > 4)) { setCell(x, y, 0) }
+                let color = {
+                    r: cell === 2 ? 255 : 0,
+                    g: 0,
+                    b: cell === 1 ? 255 : 0,
+                    a: 255
+                };
 
-            // Birth
-            if (!isAlive && totalAlive === 3) { setCell(x, y, dominantTeam); }
-
-            // Team Fighting
-            if (isAlive && totalEnemy > Math.random() * 4) { setCell(x, y, 0); }
-
-            // Rendering
-            ctx.fillStyle = cell === 1 ? blueColor : redColor;
-            if (cell !== 0) {
-                ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize)
+                fillRect(x, y, color);
+            }
+            else {
+                // Birth
+                if (totalAlive === 3) setCell(x, y, dominantTeam);
             }
         }
     }
 
+    let frame = await createImageBitmap(drawTarget);
+    ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
+
+    let delta = (performance.now() - lastTime) / 1000;
+    lastTime = performance.now();
+
+    $performance.html(`${(1 / delta).toFixed(0)} FPS`);
     setTimeout(loop, 1000 / fps);
 }
 
