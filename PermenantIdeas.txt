@@ -4,14 +4,14 @@
 - Project Dashboard
 - Snake
 
-- Incrimental Game
+- Incremental Game
 - Discord Clone
 
 - Shopping List
-- Novalty Website
+- Novelty Website
 
 - Emulator
-- Content Aggrigation Website
+- Content Aggregation Website
 
 - Planner Website
 
@@ -29,16 +29,16 @@
 - Tip Calculator
 
 - Fake Web OS
-- Geolocation website thing that plays differnet music depending on location
+- Geo location website thing that plays different music depending on location
 
 - Nonsense website with no meaning that's only purpose is to look good and have no real functionality (aka Flex site)
-- Sizmic activity monitor
+- Seismic activity monitor
 
 - Machine learning program that can tell you if something is a bird or not.
 - In Browser Light Show
 
 - audio visualizer
-- keyboard drumset
+- keyboard drum set
 
 - VS code extension
 - Quine
@@ -50,13 +50,13 @@
 - point and click game
 
 - Flash card program
-- Auto-Texter
+- Auto Text
 
 - Digital Whiteboard
 - Self-Information Home Page tells you everything about whats currently happening in your location
 
 - Train Game
-- Platformer Game
+- Platforming Game
 
 - Tower Defense Game 
 - Budgeting web app
@@ -82,16 +82,30 @@
 - Chrome/Firefox extension
 
 - Motivational website
-- Outdoors simulatior 
-
-- Celebrity Death Tracker
-- Celebrity Death Predicter
+- Outdoors simulation 
 
 - Magic 8 ball
-- Daily Horiscope
+- Daily Horoscope
 
 - Zombie Game
 - Vampire Game
 
 - Fire game
 - Fire simulator
+
+- Unblocking like puzzle game slide the blocks
+- logic board
+
+- library/book management sight
+- Website that keeps track of the movies you've seen or plan to see and your thoughts
+
+- Multi website control panel grabs content from given links displays all in one play
+- Social media website
+
+- Aggregate social media website
+- Friend simulator
+
+- Website that makes you look busy
+- add suggestions + blog section to website
+
+-personality quiz 

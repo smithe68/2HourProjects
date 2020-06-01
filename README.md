@@ -12,6 +12,7 @@
 | Weather App | Javascript |
 | Swarm Simulation | Javascript |
 | Cellular Automata| Javascript |
+| 2d SandBox | TypeScript |
 
 ## Almost
 | Project | Language | Reason |

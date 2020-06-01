@@ -125,6 +125,19 @@
             "shortDescription": "A simple text game",
             "link": "projects/TextAdventure/index.html",
             "failure": true
+        },
+        {
+            "name": "Sandbox Simulation",
+            "description": [
+                "We really liked our cellular automata so we decided to take it a step further and make a derivative. \n",
+                "This time we added sand, water, and air into the mix to bring about more complexity \n ",
+                "In this version you can interact with gravity and pour water over everything in a semi-realistic way\n",
+                "Give it a try!\n"
+            ],
+            "image": "god.png",
+            "shortDescription": "a 2d Sandbox",
+            "link": "projects/PhysicsSim/index.html",
+            "failure": false
         }
     ]
 }
