@@ -3,11 +3,12 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
+const $performance = $('#performance');
+
+const $cellSize = $("#cellSize");
 const $maxColonies = $('#maxColonies');
 const $colonySize = $('#colonySize');
 const $framerate = $("#framerate");
-const $cellSize = $("#cellSize");
-const $performance = $('#performance');
 
 let cellSize = $cellSize.val();
 let maxColonySize = $colonySize.val();
