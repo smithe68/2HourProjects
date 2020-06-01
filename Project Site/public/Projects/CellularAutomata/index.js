@@ -1,3 +1,5 @@
+"use strict"
+
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -13,71 +15,27 @@ let numOfColonies = $maxColonies.val();
 let fps = $framerate.val();
 
 let lastTime = 0;
-
-const bgColor = "rgb(155, 255, 155)";
-const blueColor = "blue";
-const redColor = "red";
-
-let width = ctx.canvas.clientWidth / cellSize;
 let height = ctx.canvas.clientHeight / cellSize;
+let width = ctx.canvas.clientWidth / cellSize;
 
 const cells = [];
-const cellNeighbors = [];
 
 let drawTarget = new ImageData(width, height);
 ctx.imageSmoothingEnabled = false;
-
-$cellSize.change(() => {
-    let value = $cellSize.val();
-    $("label[for='cellSize']").html(`Cell Size: ${value}`);
-    cellSize = value;
-    width = ctx.canvas.clientWidth / cellSize;
-    height = ctx.canvas.clientHeight / cellSize;
-    drawTarget = new ImageData(width, height);
-    generateWorld();
-    refreshWorld();
-});
-
-$colonySize.change(() => {
-    let value = $colonySize.val();
-    $("label[for='colonySize']").html(`Max Colony Size: ${value}`);
-    maxColonySize = value;
-    refreshWorld();
-});
-
-$maxColonies.change(() => {
-    let value = $maxColonies.val();
-    $("label[for='maxColonies']").html(`Max Colonies: ${value}`);
-    numOfColonies = value;
-    refreshWorld();
-});
-
-$framerate.change(() => {
-    let value = $framerate.val();
-    $("label[for='framerate']").html(`FPS: ${value}`);
-    fps = value;
-    refreshWorld();
-});
 
 function inBounds(x, y) {
     return x >= 0 && x < width && y >= 0 && y < height;
 }
 
 function setCell(x, y, cell) {
-    if (inBounds(x, y)) {
-        cells[y * width + x] = cell;
-    }
+    if (inBounds(x, y)) cells[y * width + x] = cell;
 }
 
 function getCell(x, y) {
-    if (inBounds(x, y)) {
-        return cells[y * width + x];
-    } else {
-        return 0;
-    }
+    return inBounds(x, y) ? cells[y * width + x] : 0;
 }
 
-function refreshWorld() {
+function spawnColonies() {
     for (let i = 0; i < width * height; i++) { cells[i] = 0; }
 
     for (let k = 0; k < numOfColonies; k++) {
@@ -99,7 +57,12 @@ function refreshWorld() {
     }
 }
 
-function generateWorld() {
+function generateUniverse() {
+    width = ctx.canvas.clientWidth / cellSize;
+    height = ctx.canvas.clientHeight / cellSize;
+    drawTarget = new ImageData(width, height);
+
+    cells.length = 0;
     for (let i = 0; i < width * height; i++) {
         cells.push(0);
     }
@@ -118,22 +81,23 @@ function getNeighbors(x, y) {
     ];
 }
 
-function getNeighborInfo(x, y) {
+function getNeighborInfo(x, y, cell) {
     let totalAlive = 0;
     let totalEnemy = 0;
 
     let totalRed = 0;
     let totalBlue = 0;
 
-    let cell = getCell(x, y);
-    getNeighbors(x, y).forEach(neighbor => {
+    const neighbors = getNeighbors(x, y);
+    for (let i = 0; i < neighbors.length; i++) {
+        const neighbor = neighbors[i];
         if (neighbor !== 0) {
             totalAlive++;
             if (neighbor !== cell) totalEnemy++;
             if (neighbor === 1) totalBlue++;
             else totalRed++;
         }
-    });
+    }
 
     return {
         totalAlive,
@@ -153,54 +117,74 @@ async function loop() {
         drawTarget.data[i + 3] = 255;
     }
 
-    const fillRect = (x, y, color) => {
-        let d = (y * width + x) * 4;
-        drawTarget.data[d] = color.r;
-        drawTarget.data[d + 1] = color.g;
-        drawTarget.data[d + 2] = color.b;
-        drawTarget.data[d + 3] = color.a;
-    };
-
     for (let x = 0; x < width; x++) {
         for (let y = 0; y < height; y++) {
-            let cell = getCell(x, y);
-            let isAlive = cell !== 0;
-
-            let { totalAlive, totalEnemy, dominantTeam } = getNeighborInfo(x, y);
+            const cell = getCell(x, y);
+            const { totalAlive, totalEnemy, dominantTeam } = getNeighborInfo(x, y, cell);
+            const isAlive = cell !== 0;
 
             if (isAlive) {
                 // Under population, Overpopulation, and Team Fighting
-                if (totalAlive < 2 || totalAlive > 3 ||
-                    totalEnemy > Math.random() * 4) {
+                if (totalAlive < 2 || totalAlive > 3 || totalEnemy >= 4) {
                     setCell(x, y, 0);
                 }
 
-                let color = {
-                    r: cell === 2 ? 255 : 0,
-                    g: 0,
-                    b: cell === 1 ? 255 : 0,
-                    a: 255
-                };
-
-                fillRect(x, y, color);
+                const d = (y * width + x) * 4;
+                drawTarget.data[d] = cell === 2 ? 255 : 0;
+                drawTarget.data[d + 1] = 0;
+                drawTarget.data[d + 2] = cell === 1 ? 255 : 0;
+                drawTarget.data[d + 3] = 255;
             }
-            else {
-                // Birth
-                if (totalAlive === 3) setCell(x, y, dominantTeam);
+            else if (totalAlive === 3) {
+                setCell(x, y, dominantTeam);
             }
         }
     }
 
-    let frame = await createImageBitmap(drawTarget);
+    const frame = await createImageBitmap(drawTarget);
     ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
 
-    let delta = (performance.now() - lastTime) / 1000;
+    const delta = (performance.now() - lastTime) / 1000;
     lastTime = performance.now();
 
     $performance.html(`${(1 / delta).toFixed(0)} FPS`);
     setTimeout(loop, 1000 / fps);
 }
 
-generateWorld();
-refreshWorld();
-requestAnimationFrame(loop);
+// EVENTS
+// ======================================================
+
+$cellSize.change(() => {
+    let value = $cellSize.val();
+    $("label[for='cellSize']").html(`Cell Size: ${value}`);
+    cellSize = value;
+    generateUniverse();
+    spawnColonies();
+});
+
+$colonySize.change(() => {
+    let value = $colonySize.val();
+    $("label[for='colonySize']").html(`Max Colony Size: ${value}`);
+    maxColonySize = value;
+    spawnColonies();
+});
+
+$maxColonies.change(() => {
+    let value = $maxColonies.val();
+    $("label[for='maxColonies']").html(`Max Colonies: ${value}`);
+    numOfColonies = value;
+    spawnColonies();
+});
+
+$framerate.change(() => {
+    let value = $framerate.val();
+    $("label[for='framerate']").html(`FPS: ${value}`);
+    fps = value;
+    spawnColonies();
+});
+
+$(async () => {
+    generateUniverse();
+    spawnColonies();
+    requestAnimationFrame(loop);
+});
