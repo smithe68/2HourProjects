@@ -1,9 +1,10 @@
 * {
+    margin: 0;
+    box-sizing: border-box;
     user-select: none;
 }
 
 body {
-    margin: 0;
     overflow: hidden;
 
     display: flex;
@@ -17,11 +18,35 @@ body {
     height: 100vh;
 }
 
-canvas {
+main {
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255, 220, 200, 0.4);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    margin: 2rem 0;
 }
 
-#fps{
+#brushes {
+    list-style-type: none;
     display: flex;
-    text-align: left;
+    padding: 0;
+
+    .brush {
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+
+        &:hover, &:disabled {
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+    }
+}
+
+.selected {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+canvas {
 }

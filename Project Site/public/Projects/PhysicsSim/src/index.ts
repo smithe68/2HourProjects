@@ -54,11 +54,6 @@ const colors: { [mat: number]: Color } = {
     4: { r: 0, g: 0, b: 255, a: 50 }
 };
 
-const waterColor: Color = { r: 0, g: 0, b: 255, a: 50 };
-const sandColor: Color = { r: 120, g: 120, b: 0, a: 255 };
-const dirtColor: Color = { r: 100, g: 100, b: 100, a: 255 };
-const lifeColor: Color = { r: 10, g: 200, b: 30, a: 85 };
-
 class Universe {
 
     static width: number;
@@ -159,23 +154,9 @@ class Universe {
             for (let y = Universe.height - 1; y >= 0; y--) {
                 Simulation.simulate(x, y);
 
-                switch (Universe.getCell(x, y)) {
-
-                    case Material.Dirt:
-                        Universe.draw(x, y, dirtColor);
-                        break;
-                        2
-                    case Material.Sand:
-                        Universe.draw(x, y, sandColor);
-                        break;
-
-                    case Material.Water:
-                        Universe.draw(x, y, waterColor);
-                        break;
-
-                    case Material.Life:
-                        Universe.draw(x, y, lifeColor);
-                        break
+                let cell = Universe.getCell(x, y);
+                if (cell !== Material.Air) {
+                    Universe.draw(x, y, colors[cell]);
                 }
             }
         }
@@ -307,17 +288,28 @@ canvas?.addEventListener('mouseup', ev => {
     isDrawing = false;
 });
 
-document.addEventListener('keydown', e => {
-    switch (e.key) {
-        case '0': brush = Material.Sand; break;
-        case '1': brush = Material.Dirt; break;
-        case '2': brush = Material.Water; break;
-        case '3': brush = Material.Life; break;
-        case '4': brush = Material.Air; break;
-    }
-});
+function selectBrush(num: number) {
+    $('.brush').each((index, elem) => {
+        elem.classList.toggle('selected', index !== num ? false : true);
+    });
+    brush = num;
+}
 
 $(() => {
+    const keys = Object.keys(Material);
+    const $brushes = $('#brushes');
+    const length = keys.length / 2;
+
+    for (let i = 0; i < length; i++) {
+        const li = document.createElement('li');
+        li.classList.add('brush');
+        li.innerHTML = keys[length + i];
+        li.addEventListener('click', () => selectBrush(i));
+        $brushes.append(li);
+    }
+
+    selectBrush(brush);
+
     if (canvas) {
         let width = canvas.clientWidth / CELL_SIZE;
         let height = canvas.clientHeight / CELL_SIZE;

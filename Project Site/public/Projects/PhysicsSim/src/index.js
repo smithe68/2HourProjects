@@ -50,10 +50,6 @@ const colors = {
     3: { r: 10, g: 200, b: 30, a: 85 },
     4: { r: 0, g: 0, b: 255, a: 50 }
 };
-const waterColor = { r: 0, g: 0, b: 255, a: 50 };
-const sandColor = { r: 120, g: 120, b: 0, a: 255 };
-const dirtColor = { r: 100, g: 100, b: 100, a: 255 };
-const lifeColor = { r: 10, g: 200, b: 30, a: 85 };
 class Universe {
     static init(width, height) {
         Universe.width = width;
@@ -132,20 +128,9 @@ class Universe {
         for (let x = 0; x < Universe.width; x++) {
             for (let y = Universe.height - 1; y >= 0; y--) {
                 Simulation.simulate(x, y);
-                switch (Universe.getCell(x, y)) {
-                    case Material.Dirt:
-                        Universe.draw(x, y, dirtColor);
-                        break;
-                        2;
-                    case Material.Sand:
-                        Universe.draw(x, y, sandColor);
-                        break;
-                    case Material.Water:
-                        Universe.draw(x, y, waterColor);
-                        break;
-                    case Material.Life:
-                        Universe.draw(x, y, lifeColor);
-                        break;
+                let cell = Universe.getCell(x, y);
+                if (cell !== Material.Air) {
+                    Universe.draw(x, y, colors[cell]);
                 }
             }
         }
@@ -190,6 +175,7 @@ class Simulation {
         if (totalAlive < 2 || totalAlive > 3) {
             Universe.setCell(x, y, Material.Air);
         }
+        3;
         if (Universe.getCell(x, y) === Material.Air && totalAlive === 3) {
             Universe.setCell(x, y, Material.Life);
         }
@@ -246,26 +232,24 @@ canvas === null || canvas === void 0 ? void 0 : canvas.addEventListener('mousedo
 canvas === null || canvas === void 0 ? void 0 : canvas.addEventListener('mouseup', ev => {
     isDrawing = false;
 });
-document.addEventListener('keydown', e => {
-    switch (e.key) {
-        case '0':
-            brush = Material.Sand;
-            break;
-        case '1':
-            brush = Material.Dirt;
-            break;
-        case '2':
-            brush = Material.Water;
-            break;
-        case '3':
-            brush = Material.Life;
-            break;
-        case '4':
-            brush = Material.Air;
-            break;
-    }
-});
+function selectBrush(num) {
+    jquery_1.default('.brush').each((index, elem) => {
+        elem.classList.toggle('selected', index !== num ? false : true);
+    });
+    brush = num;
+}
 jquery_1.default(() => {
+    const keys = Object.keys(Material);
+    const $brushes = jquery_1.default('#brushes');
+    const length = keys.length / 2;
+    for (let i = 0; i < length; i++) {
+        const li = document.createElement('li');
+        li.classList.add('brush');
+        li.innerHTML = keys[length + i];
+        li.addEventListener('click', () => selectBrush(i));
+        $brushes.append(li);
+    }
+    selectBrush(brush);
     if (canvas) {
         let width = canvas.clientWidth / CELL_SIZE;
         let height = canvas.clientHeight / CELL_SIZE;
