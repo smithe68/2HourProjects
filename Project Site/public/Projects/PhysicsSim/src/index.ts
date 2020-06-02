@@ -103,15 +103,14 @@ class Universe {
 
     static getNeighborInfo(x: number, y: number, cell: number) {
         let totalAlive = 8;
-
         const neighbors = Universe.getNeighbors(x, y);
+
         for (let i = 0; i < neighbors.length; i++) {
             const neighbor = neighbors[i];
             if (neighbor !== Material.Life) {
                 totalAlive--;
             }
         }
-
         return totalAlive;
     }
 
@@ -163,6 +162,7 @@ class Universe {
 
         const mouseX = Math.floor(mousePos.x / CELL_SIZE);
         const mouseY = Math.floor(mousePos.y / CELL_SIZE);
+
         Universe.draw(mouseX, mouseY, { r: 255, g: 0, b: 0, a: 100 });
 
         if (isDrawing) {
@@ -182,7 +182,6 @@ class Simulation {
         switch (Universe.getCell(x, y)) {
             case Material.Air:
                 Simulation.simulateAir(x, y);
-                Simulation.simulateLife(x, y);
                 break;
             case Material.Sand:
                 Simulation.simulateSand(x, y);
@@ -196,7 +195,6 @@ class Simulation {
             case Material.Water:
                 Simulation.simulateWater(x, y);
                 break;
-
         }
     }
 
@@ -208,7 +206,6 @@ class Simulation {
         if (totalAlive < 2 || totalAlive > 3) {
             Universe.setCell(x, y, Material.Air);
         }
-        3
         if (Universe.getCell(x, y) === Material.Air && totalAlive === 3) {
             Universe.setCell(x, y, Material.Life);
         }
@@ -221,6 +218,7 @@ class Simulation {
 
     }
     static simulateAir(x: number, y: number) {
+        Simulation.simulateLife(x, y);
     }
 
     static simulateDirt(x: number, y: number) {
@@ -231,29 +229,45 @@ class Simulation {
     }
 
     static disperse(x: number, y: number) {
+        let disperseDirection = 0;
+        const leftCell =  Universe.getCell(x-1,y);
+        const rightCell = Universe.getCell(x+1,y);
+
+        if((rightCell === Material.Water && leftCell === Material.Water)){
+            return;
+        }
+
         if (Universe.getCell(x, y + 1) !== Material.Air) {
             if (Math.random() > .5) {
                 //Move Left
-                if ((x - 1 >= 0) && Universe.getCell(x - 1, y) === Material.Air) {
-                    Universe.setCell(x, y, Material.Air);
-                    Universe.setCell(x - 1, y, Material.Water);
+                if ((x - 1 >= 0) && leftCell === Material.Air) {
+                    disperseDirection = -1;
                 }
             }
             else {
                 // Move Right
-                if ((x + 1 < Universe.width) && Universe.getCell(x + 1, y) === Material.Air) {
-                    Universe.setCell(x, y, Material.Air);
-                    Universe.setCell(x + 1, y, Material.Water);
+                if ((x + 1 < Universe.width) && rightCell === Material.Air) {
+                    disperseDirection = 1;
                 }
             }
+            Universe.setCell(x, y, Material.Air);
+            Universe.setCell(x + disperseDirection, y, Material.Water);
         }
     }
 
     static gravity(x: number, y: number) {
-        let cell = Universe.getCell(x, y);
-        if (y < Universe.height - 1 && (Universe.getCell(x, y + 1) === Material.Air ||
-            (cell === Material.Sand && Universe.getCell(x, y + 1) === Material.Water))) {
-            Universe.setCell(x, y, Material.Air);
+        let setCell = Material.Air;
+        const cell = Universe.getCell(x, y);
+        const belowCell =  Universe.getCell(x, y + 1) ;
+        const inBounds =  y < Universe.height - 1; 
+        const isEmptyBelow = belowCell === Material.Air;
+        const moveableThroughWater = cell === Material.Sand && belowCell === Material.Water;
+        if (belowCell === Material.Water){
+            setCell = Material.Water;
+        }
+
+        if (inBounds && ( isEmptyBelow || moveableThroughWater)) {
+            Universe.setCell(x, y, setCell);
             Universe.setCell(x, y + 1, cell);
             Universe.drawDynamic(x, y, cell);
         }

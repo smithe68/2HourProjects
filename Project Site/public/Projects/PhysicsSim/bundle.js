@@ -11067,28 +11067,41 @@ class Simulation {
         Simulation.gravity(x, y);
     }
     static disperse(x, y) {
+        let disperseDirection = 0;
+        const leftCell = Universe.getCell(x - 1, y);
+        const rightCell = Universe.getCell(x + 1, y);
+        if ((rightCell === Material.Water && leftCell === Material.Water)) {
+            return;
+        }
         if (Universe.getCell(x, y + 1) !== Material.Air) {
             if (Math.random() > .5) {
                 //Move Left
-                if ((x - 1 >= 0) && Universe.getCell(x - 1, y) === Material.Air) {
-                    Universe.setCell(x, y, Material.Air);
-                    Universe.setCell(x - 1, y, Material.Water);
+                if ((x - 1 >= 0) && leftCell === Material.Air) {
+                    disperseDirection = -1;
                 }
             }
             else {
                 // Move Right
-                if ((x + 1 < Universe.width) && Universe.getCell(x + 1, y) === Material.Air) {
-                    Universe.setCell(x, y, Material.Air);
-                    Universe.setCell(x + 1, y, Material.Water);
+                if ((x + 1 < Universe.width) && rightCell === Material.Air) {
+                    disperseDirection = 1;
                 }
             }
+            Universe.setCell(x, y, Material.Air);
+            Universe.setCell(x + disperseDirection, y, Material.Water);
         }
     }
     static gravity(x, y) {
-        let cell = Universe.getCell(x, y);
-        if (y < Universe.height - 1 && (Universe.getCell(x, y + 1) === Material.Air ||
-            (cell === Material.Sand && Universe.getCell(x, y + 1) === Material.Water))) {
-            Universe.setCell(x, y, Material.Air);
+        let setCell = Material.Air;
+        const cell = Universe.getCell(x, y);
+        const belowCell = Universe.getCell(x, y + 1);
+        const inBounds = y < Universe.height - 1;
+        const isEmptyBelow = belowCell === Material.Air;
+        const moveableThroughWater = cell === Material.Sand && belowCell === Material.Water;
+        if (belowCell === Material.Water) {
+            setCell = Material.Water;
+        }
+        if (inBounds && (isEmptyBelow || moveableThroughWater)) {
+            Universe.setCell(x, y, setCell);
             Universe.setCell(x, y + 1, cell);
             Universe.drawDynamic(x, y, cell);
         }
