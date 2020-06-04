@@ -16,7 +16,7 @@ async function advanceSlide(dir, isUserClick) {
     else if (slideIndex < 0) slideIndex = projects.length - 1;
 
     $image.fadeOut(speed, () => {
-        const url = `url("./images/${projects[slideIndex].image}")`;
+        const url = `url("./images/project/${projects[slideIndex].image}")`;
         $image.css('background-image', url);
         $('.slideshow-caption').html(projects[slideIndex].shortDescription);
         $image.fadeIn(speed);
@@ -77,7 +77,7 @@ async function generateProjectDescriptions() {
         image.classList.add('project-image');
 
         name.innerHTML = project.name;
-        image.style.backgroundImage = `url("images/${project.image}")`;
+        image.style.backgroundImage = `url("images/project/${project.image}")`;
 
         if (project.link !== "") {
             image.onclick = () => window.open(project.link, "_blank");

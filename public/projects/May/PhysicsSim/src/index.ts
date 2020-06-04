@@ -3,31 +3,34 @@ import $ from 'jquery';
 /*
     Pre Programming Notes:
     =============================================
-
     Create cellular automata, that are full of a cell object depending on the object type
-    different rules will be followed
-
-    Things physics has that we want to represent: Gravity, Wind
-
-    Steps going forward:
-    =============================================
-
-    1. Set up canvas and environment
-    2. Set up rendering objects
-    3. Create cell type classes e.g Water, Sand, Dirt, etc..
-    4. Display cells
-    5. Design base functions
-    6. debug
-    7. style
-    8. additional features time permitting
+    different rules will be followed. Things physics has that we want to represent are Gravity
+    and Wind.
 */
 
+// UTILITY DATA STRUCTURES
+// ==============================
+
 enum Material {
-    Air,
-    Dirt,
-    Sand,
-    Life,
-    Water
+    Air, Dirt, Sand, Life, Water
+}
+
+class Color {
+    r: number;
+    g: number;
+    b: number;
+    a: number;
+
+    constructor(r: number, g: number, b: number, a: number = 255) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        this.a = a;
+    }
+}
+
+interface Point {
+    x: number, y: number;
 }
 
 // CONSTANTS
@@ -36,23 +39,26 @@ enum Material {
 const CELL_SIZE: number = 8;
 const TARGET_FPS: number = 60;
 
-const canvas = document.querySelector('canvas');
-const ctx = canvas?.getContext('2d');
+const COLORS: Record<Material, Color> = {
+    [Material.Air]: new Color(0, 0, 0, 0),
+    [Material.Dirt]: new Color(100, 100, 100),
+    [Material.Sand]: new Color(120, 120, 0),
+    [Material.Life]: new Color(10, 200, 30, 85),
+    [Material.Water]: new Color(0, 0, 255, 50)
+};
+
+// ==============================
+
+const $canvas = <JQuery<HTMLCanvasElement>>$('canvas');
+const ctx = (<HTMLCanvasElement>$canvas[0])?.getContext('2d');
 
 const $fpsText = $('#fps');
 
 let lastTime = 0;
 
-let mousePos: MousePos = { x: 0, y: 0 };
+let mousePos: Point = { x: 0, y: 0 };
 let isDrawing: boolean = false;
 let brush: Material = Material.Sand;
-
-const colors: { [mat: number]: Color } = {
-    1: { r: 100, g: 100, b: 100, a: 255 },
-    2: { r: 120, g: 120, b: 0, a: 255 },
-    3: { r: 10, g: 200, b: 30, a: 85 },
-    4: { r: 0, g: 0, b: 255, a: 50 }
-};
 
 class Universe {
 
@@ -130,18 +136,18 @@ class Universe {
 
     static drawDynamic(x: number, y: number, cell: number) {
         if (ctx) {
-            let color = colors[cell];
+            let color = COLORS[cell as Material];
             ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
             ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
     }
 
     static async tick() {
-        if (canvas === null) { return; }
+        if ($canvas === null) { return; }
         lastTime = performance.now();
 
         const frame = await createImageBitmap(Universe.drawTarget);
-        ctx?.drawImage(frame, 0, 0, canvas.width, canvas.height);
+        ctx?.drawImage(frame, 0, 0, $canvas[0].width, $canvas[0].height);
 
         for (let x = 0; x < Universe.width; x++) {
             for (let y = 0; y < Universe.height; y++) {
@@ -155,7 +161,7 @@ class Universe {
 
                 let cell = Universe.getCell(x, y);
                 if (cell !== Material.Air) {
-                    Universe.draw(x, y, colors[cell]);
+                    Universe.draw(x, y, COLORS[cell as Material]);
                 }
             }
         }
@@ -230,10 +236,10 @@ class Simulation {
 
     static disperse(x: number, y: number) {
         let disperseDirection = 0;
-        const leftCell =  Universe.getCell(x-1,y);
-        const rightCell = Universe.getCell(x+1,y);
+        const leftCell = Universe.getCell(x - 1, y);
+        const rightCell = Universe.getCell(x + 1, y);
 
-        if((rightCell === Material.Water && leftCell === Material.Water)){
+        if ((rightCell === Material.Water && leftCell === Material.Water)) {
             return;
         }
 
@@ -258,15 +264,15 @@ class Simulation {
     static gravity(x: number, y: number) {
         let setCell = Material.Air;
         const cell = Universe.getCell(x, y);
-        const belowCell =  Universe.getCell(x, y + 1) ;
-        const inBounds =  y < Universe.height - 1; 
+        const belowCell = Universe.getCell(x, y + 1);
+        const inBounds = y < Universe.height - 1;
         const isEmptyBelow = belowCell === Material.Air;
         const moveableThroughWater = cell === Material.Sand && belowCell === Material.Water;
-        if (belowCell === Material.Water){
+        if (belowCell === Material.Water) {
             setCell = Material.Water;
         }
 
-        if (inBounds && ( isEmptyBelow || moveableThroughWater)) {
+        if (inBounds && (isEmptyBelow || moveableThroughWater)) {
             Universe.setCell(x, y, setCell);
             Universe.setCell(x, y + 1, cell);
             Universe.drawDynamic(x, y, cell);
@@ -274,44 +280,30 @@ class Simulation {
     }
 }
 
-interface Color {
-    r: number,
-    g: number,
-    b: number,
-    a: number
-}
-
-interface MousePos {
-    x: number,
-    y: number;
-}
-
-canvas?.addEventListener('mousemove', ev => {
-    let rect = canvas.getBoundingClientRect();
+$canvas.mousemove(ev => {
+    let rect = $canvas[0].getBoundingClientRect();
     mousePos = {
         x: ev.clientX - rect.left,
         y: ev.clientY - rect.top
     };
 });
 
-canvas?.addEventListener('mousedown', ev => {
-    isDrawing = true;
-});
+$canvas.mousedown(() => { isDrawing = true; });
+$canvas.mouseup(() => { isDrawing = false; });
 
-canvas?.addEventListener('mouseup', ev => {
-    isDrawing = false;
-});
-
-function selectBrush(num: number) {
+function selectBrush(mat: Material) {
     $('.brush').each((index, elem) => {
-        elem.classList.toggle('selected', index !== num ? false : true);
+        elem.classList.toggle('selected', index !== mat ? false : true);
     });
-    brush = num;
+    brush = mat;
 }
 
+// JQUERY EVENTS
+// ==============================
+
 $(() => {
-    const keys = Object.keys(Material);
     const $brushes = $('#brushes');
+    const keys = Object.keys(Material);
     const length = keys.length / 2;
 
     for (let i = 0; i < length; i++) {
@@ -324,9 +316,9 @@ $(() => {
 
     selectBrush(brush);
 
-    if (canvas) {
-        let width = canvas.clientWidth / CELL_SIZE;
-        let height = canvas.clientHeight / CELL_SIZE;
+    if ($canvas) {
+        let width = $canvas[0].clientWidth / CELL_SIZE;
+        let height = $canvas[0].clientHeight / CELL_SIZE;
         Universe.init(width, height);
 
         requestAnimationFrame(Universe.tick);

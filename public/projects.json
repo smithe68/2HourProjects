@@ -15,8 +15,8 @@
         {
             "name": "ASCII Paint",
             "description": [
-                "ASCII Paint was the first 2 hour project, and one of our favorits for how silly it is.\n",
-                "all it does is take inputs with wasd and place a character in the terminal with space. It also comes with multiple\n",
+                "ASCII Paint was the first 2 hour project, and one of our favorites for how silly it is.\n",
+                "all it does is take inputs with WASD and place a character in the terminal with space. It also comes with multiple\n",
                 "brushes that can change the way you paint. It was a very fun project to work on and holds a special place in out heart\n"
             ],
             "image": "asciiPaint.png",
@@ -28,7 +28,7 @@
             "name": "Chatroom",
             "description": [
                 "This chat room will work on a good day, because we are poor we can't afford firebase and\n ",
-                "can only read so much data from our server, this one allows you to send messeges back and forth with anyone else\n",
+                "can only read so much data from our server, this one allows you to send messages back and forth with anyone else\n",
                 "that wants to access the webpage. You can clear the chat by typing clear in the box though\n"
             ],
             "image": "chatroom.png",
@@ -39,7 +39,7 @@
         {
             "name": "Discord Bot",
             "description": [
-                "This is a discord group created for our friends, during the covid-19 pandemic we got really\n",
+                "This is a discord group created for our friends, during the Covid-19 pandemic we got really\n",
                 "into watching B-movies, and wanted to make a bot for our discord that would help us pick them\n",
                 "this bot allows you to add movies to a list and pick them, you can also remove movies, pick a random one\n",
                 "or clear the whole list. It also has utility features like rolling a dice or generating a random number, or picture\n",
@@ -60,7 +60,7 @@
             ],
             "image": "checkers.png",
             "shortDescription": "Checkers but with Emojis",
-            "link": "projects/Emoji Checkers/index.html",
+            "link": "projects/May/Emoji Checkers/index.html",
             "failure": false
         },
         {
@@ -73,7 +73,7 @@
             ],
             "image": "fish.png",
             "shortDescription": "Cookie Clicker but Fish",
-            "link": "projects/FishTank/index.html",
+            "link": "projects/May/FishTank/index.html",
             "failure": false
         },
         {
@@ -86,7 +86,7 @@
             ],
             "image": "weather.png",
             "shortDescription": "Just a Weather Website",
-            "link": "projects/WeatherWebsite/index.html",
+            "link": "projects/May/WeatherWebsite/index.html",
             "failure": false
         },
         {
@@ -98,7 +98,7 @@
             ],
             "image": "swarmsim.png",
             "shortDescription": "A 'boid' program",
-            "link": "projects/Swarm Simulation/index.html",
+            "link": "projects/May/Swarm Simulation/index.html",
             "failure": false
         },
         {
@@ -110,7 +110,7 @@
             ],
             "image": "cells.png",
             "shortDescription": "A project using cellular automata",
-            "link": "projects/CellularAutomata/index.html",
+            "link": "projects/May/CellularAutomata/index.html",
             "failure": false
         },
         {
@@ -123,7 +123,7 @@
             ],
             "image": "text.png",
             "shortDescription": "A simple text game",
-            "link": "projects/TextAdventure/index.html",
+            "link": "projects/May/TextAdventure/index.html",
             "failure": true
         },
         {
@@ -136,7 +136,7 @@
             ],
             "image": "god.png",
             "shortDescription": "a 2d Sandbox",
-            "link": "projects/PhysicsSim/index.html",
+            "link": "projects/May/PhysicsSim/index.html",
             "failure": false
         }
     ]
