@@ -1,7 +1,7 @@
 let slideIndex = 0;
 let slideshowInterval = null;
 
-const pages = ["home", "contact"];
+const pages = ["home", "contact", "dashboard"];
 
 async function advanceSlide(dir, isUserClick) {
     let speed = isUserClick ? "fast" : "slow";
@@ -46,6 +46,7 @@ async function setPage(index) {
         $('.back').click(() => advanceSlide(-1, true));
     }
 
+    document.title = `${pages[index][0].toUpperCase()}${pages[index].substr(1)}`;
     localStorage.setItem('lastPage', index);
 }
 
@@ -109,6 +110,8 @@ async function generateProjectDescriptions() {
         appendProject(failures[i]);
     }
 }
+
+
 
 $(async () => {
     let lastPage = localStorage.getItem('lastPage');

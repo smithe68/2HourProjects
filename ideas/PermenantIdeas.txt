@@ -43,7 +43,6 @@
 - VS code extension
 - Quine
 
-- Pong
 - Tetris
 
 - Chess
@@ -108,4 +107,18 @@
 - Website that makes you look busy
 - add suggestions + blog section to website
 
--personality quiz 
+- personality quiz 
+- Fit the puzzle pieces into box Game
+
+- Text editor
+
+- Music recommender 
+- Study Assistant/ Helper website
+
+- Decision tree generator
+- something like a uml editor
+
+- Christmas tree designer
+- Shirt designer
+
+- keylogger

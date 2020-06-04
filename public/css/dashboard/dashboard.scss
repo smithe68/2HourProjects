@@ -1,0 +1,110 @@
+main {
+    min-height: 100vh;
+    grid-template-rows: 3rem 1fr;
+    display: grid;
+
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+
+    --side-bar: #3f3f3f;
+}
+
+#nav-bar {
+    padding: 0 25%;
+    max-width: 1280px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background: rgba(255, 190, 150, 0.1);
+
+    a {
+        text-decoration: none;
+        text-align: left;
+        font-size: 1rem;
+        color: rgba(255, 240, 230, 0.8);
+        transition: background 0.3s;
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a:hover {
+        background: var(--accent-transparent);
+    }
+}
+
+.notes {
+    display: grid;
+    grid-template-columns: 0.25fr 1fr;
+    background: var(--side-bar);
+}
+
+.projects {
+    overflow-y: scroll;
+    background: var(--side-bar);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    button {
+        font-size: 1.1rem;
+        padding: 1rem;
+        background: none;
+        color: var(--text-color);
+        text-align: left;
+        transition: background 0.1s ease 0s;
+
+        &:hover,
+        &:disabled {
+            background: rgba(0, 0, 0, 0.2);
+            transition: background 0.1s ease 0s;
+            cursor: pointer;
+        }
+    }
+}
+
+.save {
+    padding: 1.5rem;
+    color: var(--text-color);
+    background: var(--side-bar);
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    height: 10%;
+
+    background: rgba(255, 0, 0, 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background: rgba(255, 0, 0, 0.6);
+        transition: background 0.1s ease 0s;
+        cursor: pointer;
+    }
+}
+
+.notepad {
+    color: var(--text-color);
+    background-color: #1f1f1f;
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+
+.sign-out,
+.sign-up {
+    display: none !important;
+}
