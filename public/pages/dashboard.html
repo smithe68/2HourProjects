@@ -1,18 +1,35 @@
-<link rel="stylesheet" href="css/dashboard/dashboard.css">
+<link rel="stylesheet" href="css/dashboard/dashboard.css" />
 <main>
     <div id="nav-bar">
-        <a href="#" class="login">Log In</a>
+        <a href="#">Log In</a>
         <a href="#">Timer</a>
         <a href="#">Ideas</a>
-        <a href="#" onclick="displayNotes();">Notes</a>
+        <a href="#">Notes</a>
         <a href="#">Add Project</a>
-        <a href="#" class="sign-out">Sign Out</a>
-        <a href="#" class="sign-up">Sign Up</a>
     </div>
+    <section class="login">
+        <form id="login-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="johndoe@gmail.com" />
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="********" />
+            <input type="submit" value="Login" />
+        </form>
+    </section>
+    <section class="timer">
+        <div class="clock">2:00:00</div>
+        <div class="time-control">
+            <button class="tbutton" onclick="startTimer()">start</button>
+            <button class="tbutton" onclick="resetTimer()">reset</button>
+            <button class="tbutton" onclick="stopTimer()">stop</button>
+        </div>
+    </section>
+    <section class="ideas">Ideas</section>
     <section class="notes">
         <div class="projects"></div>
         <button class="save">Save</button>
         <textarea class="notepad" autofocus spellcheck="false"></textarea>
     </section>
+    <section class="add">Add Projects</section>
 </main>
 <script src="dashboard.js"></script>

@@ -139,4 +139,46 @@ main {
 .sign-up {
   display: none !important;
 }
+
+.clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 25%;
+  width: 40%;
+  padding: 4rem;
+  background-color: rgba(255, 255, 255, 0.01);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 1rem auto;
+  min-height: 3rem;
+  border-top: 0px;
+}
+
+.tbutton {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem;
+  margin: auto;
+  width: 30%;
+  font-size: 2rem;
+  text-align: center;
+  color: black;
+  background: white;
+  cursor: pointer;
+}
+
+.time-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 /*# sourceMappingURL=dashboard.css.map */

@@ -6,7 +6,7 @@ const pages = ["home", "contact", "dashboard"];
 async function advanceSlide(dir, isUserClick) {
     let speed = isUserClick ? "fast" : "slow";
     let projectsJson = await grabProjectJson();
-    let $image = $('.slideshow-image');
+    let $image = $(".slideshow-image");
 
     projects = projectsJson.projects;
 
@@ -17,8 +17,8 @@ async function advanceSlide(dir, isUserClick) {
 
     $image.fadeOut(speed, () => {
         const url = `url("./images/project/${projects[slideIndex].image}")`;
-        $image.css('background-image', url);
-        $('.slideshow-caption').html(projects[slideIndex].shortDescription);
+        $image.css("background-image", url);
+        $(".slideshow-caption").html(projects[slideIndex].shortDescription);
         $image.fadeIn(speed);
 
         clearInterval(slideshowInterval);
@@ -36,46 +36,48 @@ async function fetchPage(page) {
 
 async function setPage(index) {
     let page = await fetchPage(pages[index]);
-    $('#content').html(page);
+    $("#content").html(page);
 
     if (index == 0) {
         await generateProjectDescriptions();
         await advanceSlide(0, true);
 
-        $('.next').click(() => advanceSlide(1, true));
-        $('.back').click(() => advanceSlide(-1, true));
+        $(".next").click(() => advanceSlide(1, true));
+        $(".back").click(() => advanceSlide(-1, true));
     }
 
-    document.title = `${pages[index][0].toUpperCase()}${pages[index].substr(1)}`;
-    localStorage.setItem('lastPage', index);
+    document.title = `${pages[index][0].toUpperCase()}${pages[index].substr(
+        1
+    )}`;
+    localStorage.setItem("lastPage", index);
 }
 
 async function generateProjectDescriptions() {
     let projectJson = await grabProjectJson();
     let $projects = $("#projects");
-    let successes = projectJson.projects.filter(p => !p.failure);
-    let failures = projectJson.projects.filter(p => p.failure);
+    let successes = projectJson.projects.filter((p) => !p.failure);
+    let failures = projectJson.projects.filter((p) => p.failure);
 
-    let heading = document.createElement('h1');
+    let heading = document.createElement("h1");
 
-    heading.classList.add('heading');
+    heading.classList.add("heading");
     heading.innerHTML = "Successes";
 
     $projects.append(heading);
 
     const appendProject = (project) => {
-        let div = document.createElement('div');
+        let div = document.createElement("div");
         let name = document.createElement("h1");
         let description = document.createElement("p");
         let image = document.createElement("div");
-        let section = document.createElement('section');
+        let section = document.createElement("section");
 
         let desc = project.description;
 
-        div.classList.add('project');
-        name.classList.add('project-name');
-        description.classList.add('project-description');
-        image.classList.add('project-image');
+        div.classList.add("project");
+        name.classList.add("project-name");
+        description.classList.add("project-description");
+        image.classList.add("project-image");
 
         name.innerHTML = project.name;
         image.style.backgroundImage = `url("images/project/${project.image}")`;
@@ -101,8 +103,8 @@ async function generateProjectDescriptions() {
         appendProject(successes[i]);
     }
 
-    heading = document.createElement('h1');
-    heading.classList.add('heading');
+    heading = document.createElement("h1");
+    heading.classList.add("heading");
     heading.innerHTML = "Failures";
     $projects.append(heading);
 
@@ -111,10 +113,15 @@ async function generateProjectDescriptions() {
     }
 }
 
-
-
 $(async () => {
-    let lastPage = localStorage.getItem('lastPage');
-    if (lastPage == null) { lastPage = 0; }
+    let lastPage = localStorage.getItem("lastPage");
+    if (lastPage == null) {
+        lastPage = 0;
+    }
     setPage(lastPage);
+
+    var firebaseConfig = {};
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.auth();
 });
