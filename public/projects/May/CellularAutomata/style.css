@@ -8,8 +8,9 @@ body {
 
     flex-direction: column;
     font-family: Arial, sans-serif;
+    color: whitesmoke;
 
-    background: rgba(175, 255, 150, 1);
+    background: rgb(32, 25, 25);
     height: 100vh;
 }
 

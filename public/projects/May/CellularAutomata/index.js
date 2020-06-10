@@ -1,13 +1,13 @@
-"use strict"
+"use strict";
 
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 
-const $performance = $('#performance');
+const $performance = $("#performance");
 
 const $cellSize = $("#cellSize");
-const $maxColonies = $('#maxColonies');
-const $colonySize = $('#colonySize');
+const $maxColonies = $("#maxColonies");
+const $colonySize = $("#colonySize");
 const $framerate = $("#framerate");
 
 let cellSize = $cellSize.val();
@@ -37,16 +37,18 @@ function getCell(x, y) {
 }
 
 function spawnColonies() {
-    for (let i = 0; i < width * height; i++) { cells[i] = 0; }
+    for (let i = 0; i < width * height; i++) {
+        cells[i] = 0;
+    }
 
     for (let k = 0; k < numOfColonies; k++) {
-
         let locX = Math.random() * width;
         let locY = Math.random() * height;
         let size = Math.random() * maxColonySize + 1;
 
         for (let i = 0; i < width; i++) {
             for (let j = 0; j < height; j++) {
+                if (Math.random() > 0.7) continue;
                 let dy = j - locY;
                 let dx = i - locX;
                 let dist = Math.sqrt(dx * dx + dy * dy);
@@ -78,7 +80,7 @@ function getNeighbors(x, y) {
         getCell(x + 1, y + 1),
         getCell(x + 1, y - 1),
         getCell(x - 1, y + 1),
-        getCell(x - 1, y - 1)
+        getCell(x - 1, y - 1),
     ];
 }
 
@@ -103,25 +105,33 @@ function getNeighborInfo(x, y, cell) {
     return {
         totalAlive,
         dominantTeam: totalBlue > totalRed ? 1 : 2,
-        totalEnemy
+        totalEnemy,
     };
 }
 
+let inc = 0;
 async function loop() {
     lastTime = performance.now();
 
     // Clear the Canvas
     for (let i = 0; i < width * height * 4; i += 4) {
-        drawTarget.data[i] = 155;
+        drawTarget.data[i] = 255;
         drawTarget.data[i + 1] = 255;
-        drawTarget.data[i + 2] = 155;
-        drawTarget.data[i + 3] = 255;
+        drawTarget.data[i + 2] = 255;
+        drawTarget.data[i + 3] = 10;
     }
+
+    if (inc >= 360) inc = 0;
+    let c = (Math.sin(inc * (Math.PI / 180.0)) + 1) * 0.5 * 255;
 
     for (let x = 0; x < width; x++) {
         for (let y = 0; y < height; y++) {
             const cell = getCell(x, y);
-            const { totalAlive, totalEnemy, dominantTeam } = getNeighborInfo(x, y, cell);
+            const { totalAlive, totalEnemy, dominantTeam } = getNeighborInfo(
+                x,
+                y,
+                cell
+            );
             const isAlive = cell !== 0;
 
             if (isAlive) {
@@ -131,12 +141,11 @@ async function loop() {
                 }
 
                 const d = (y * width + x) * 4;
-                drawTarget.data[d] = cell === 2 ? 255 : 0;
+                drawTarget.data[d] = cell === 2 ? c : 0;
                 drawTarget.data[d + 1] = 0;
-                drawTarget.data[d + 2] = cell === 1 ? 255 : 0;
+                drawTarget.data[d + 2] = cell === 1 ? c : 0;
                 drawTarget.data[d + 3] = 255;
-            }
-            else if (totalAlive === 3) {
+            } else if (totalAlive === 3) {
                 setCell(x, y, dominantTeam);
             }
         }
