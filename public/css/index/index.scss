@@ -12,9 +12,9 @@
     /* Color Palette */
     --text: #1d201f;
     --inverted-text: #f6f7eb;
-    --accent-transparent: rgba(255, 200, 100, 0.2);
-    --accent-color: orange;
-    --bg-color: #0f0f0f;
+    --accent-transparent: rgba(37, 32, 25, 0.707);
+    --accent-color: #f6f7eb;
+    --bg-color: rgb(18, 18, 18);
 
     color: var(--inverted-text);
     font-weight: 300;
@@ -23,36 +23,42 @@
 
 body {
     min-height: 100vh;
-    background-color: black;
-    border-left: 2px solid var(--accent-color);
-    border-right: 2px solid var(--accent-color);
-    max-width: 1280px;
+    background: rgb(14, 11, 12);
+    background-attachment: fixed;
+    // border-left: 1.5px sol?id var(--accent-color);
+    // border-right: 1.5px solid var(--accent-color);
+    max-width: 90vw;
     margin: 0 auto;
 }
 
 header {
-    display: grid;
-    grid-template-columns: 0.1fr 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    height: 4rem;
+    height: 3rem;
 
-    background: var(--bg-color);
     user-select: none;
-
     text-align: right;
+
+    .dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem !important;
+        height: 100%;
+    }
 
     button,
     .dropdown {
-        height: 100%;
         padding: 1rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: var(--inverted-text);
         transition: background 0.1s ease 0s;
         background: none;
 
         &:hover {
             cursor: pointer;
-            background: var(--accent-transparent);
+            background: var(--bg-color);
             transition: background 0.1s;
         }
     }
@@ -62,12 +68,23 @@ nav {
     display: none;
 }
 
+@keyframes dropdown-anim {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .dropdown {
     position: relative;
     justify-self: flex-end;
+    z-index: 100;
 
     img {
-        width: 2rem;
+        width: 1.75rem;
     }
 
     &:hover nav {
@@ -76,11 +93,12 @@ nav {
 
         width: 128px;
         position: absolute;
-        top: 4rem;
+        top: 3rem;
         right: 0;
 
-        background: var(--bg-color);
         z-index: 100;
+
+        animation: dropdown-anim 0.25s;
 
         button {
             width: 100%;
@@ -92,8 +110,17 @@ nav {
 .logo {
     margin-left: 1rem;
     justify-self: flex-start;
+    align-self: center;
+    height: 3rem;
+    transition: transform 0.1s;
+    z-index: 100;
+
     img {
-        width: 4rem;
+        height: 3rem;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -108,7 +135,7 @@ nav {
 
 #content {
     position: relative;
-    background: var(--bg-color);
+    // background: var(--bg-color);
     min-height: 100vh;
 }
 

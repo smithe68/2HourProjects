@@ -55,15 +55,6 @@ async function setPage(index) {
 async function generateProjectDescriptions() {
     let projectJson = await grabProjectJson();
     let $projects = $("#projects");
-    let successes = projectJson.projects.filter((p) => !p.failure);
-    let failures = projectJson.projects.filter((p) => p.failure);
-
-    let heading = document.createElement("h1");
-
-    heading.classList.add("heading");
-    heading.innerHTML = "Successes";
-
-    $projects.append(heading);
 
     const appendProject = (project) => {
         let div = document.createElement("div");
@@ -99,17 +90,9 @@ async function generateProjectDescriptions() {
         $projects.append(div);
     };
 
-    for (let i = 0; i < successes.length; i++) {
-        appendProject(successes[i]);
-    }
-
-    heading = document.createElement("h1");
-    heading.classList.add("heading");
-    heading.innerHTML = "Failures";
-    $projects.append(heading);
-
-    for (let i = 0; i < failures.length; i++) {
-        appendProject(failures[i]);
+    let l = projectJson.projects.length;
+    for (let i = l - 1; i >= 0; i--) {
+        appendProject(projectJson.projects[i]);
     }
 }
 
@@ -120,8 +103,8 @@ $(async () => {
     }
     setPage(lastPage);
 
-    var firebaseConfig = {};
+    // var firebaseConfig = {};
 
-    firebase.initializeApp(firebaseConfig);
-    firebase.auth();
+    // firebase.initializeApp(firebaseConfig);
+    // firebase.auth();
 });

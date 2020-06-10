@@ -145,7 +145,7 @@
                 "Give it a try!\n"
             ],
             "image": "god.png",
-            "shortDescription": "a 2d Sandbox",
+            "shortDescription": "A 2d Sandbox",
             "link": "projects/May/PhysicsSim/index.html",
             "failure": false,
             "notes": "t11"
