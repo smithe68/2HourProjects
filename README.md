@@ -2,6 +2,9 @@
 <a href="https://github.com/JakubSzark">JakubSzark</a> and <a href="https://github.com/smithe68">smithe68</a> do programming within a two hour time limit. 
 
 <b>The goal is to learn something new and improve already existing skills.</b>
+<b>We have catagorized below how we feel each project has turned out below</b>
+<b>If you have any questions feel free to shoot us a message</b>
+
 
 ## Successes
 | Project | Language |
@@ -13,6 +16,7 @@
 | Swarm Simulation | Javascript |
 | Cellular Automata| Javascript |
 | 2d SandBox | TypeScript |
+| Graphing Software | Javascript|
 
 ## Almost
 | Project | Language | Reason |

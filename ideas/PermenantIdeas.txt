@@ -16,7 +16,6 @@
 - Planner Website
 
 - Secret Website
-- Fancy Timer
 
 - Maze Solver
 
@@ -32,7 +31,6 @@
 - Geo location website thing that plays different music depending on location
 
 - Nonsense website with no meaning that's only purpose is to look good and have no real functionality (aka Flex site)
-- Seismic activity monitor
 
 - Machine learning program that can tell you if something is a bird or not.
 - In Browser Light Show
@@ -48,7 +46,6 @@
 - Chess
 - point and click game
 
-- Flash card program
 - Auto Text
 
 - Digital Whiteboard
@@ -70,9 +67,6 @@
 - Habit Tracker Website
 
 - Flash Card Website
-- Graph Generator Website
-
-- Sand Simulation
 - Word Cloud Generator
 
 - Meditation Noises Dashboard

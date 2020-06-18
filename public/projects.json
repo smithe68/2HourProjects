@@ -149,6 +149,20 @@
             "link": "projects/May/PhysicsSim/index.html",
             "failure": false,
             "notes": "t11"
+        },
+        {
+            "name": "Graphing Software",
+            "description": [
+                "Inspired by desmos we wanted to see how hard it actually was to create graphing software.\n",
+                "The big problem with doing this through the canvas element was translating the canvas coordinates to cartisian coordinates\n",
+                "As well scaling the coordinates while zooming in. After figuring out the math behind that though it was simple to code the rest.\n",
+                "We skipped using a parser by using javas built in evaluator so it takes in javascript for its function arguments.\n"
+            ],
+            "image": "graf.png",
+            "shortDescription": "Graph Software",
+            "link": "projects/June/Graf/index.html",
+            "failure": false,
+            "notes": "t12"
         }
     ]
 }

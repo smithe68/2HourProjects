@@ -106,6 +106,7 @@
 .project-image {
   width: 100%;
   background-size: cover;
+  background-position: center;
   border: 2px solid var(--accent-color);
   cursor: pointer;
   height: 100%;

@@ -1,1 +1,1 @@
-- Project Dashboard
+- Graph Generator Website
