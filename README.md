@@ -17,6 +17,7 @@
 | Cellular Automata| Javascript |
 | 2d SandBox | TypeScript |
 | Graphing Software | Javascript|
+| Paint | Javascript|
 
 ## Almost
 | Project | Language | Reason |
