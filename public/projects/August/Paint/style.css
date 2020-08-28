@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+body div input {
+    margin: 1rem;
+}
+
+canvas {
+    box-shadow: 5px 5px 16px rgba(0, 0, 0, 0.1);
+}

@@ -163,6 +163,21 @@
             "link": "projects/June/Graf/index.html",
             "failure": false,
             "notes": "t12"
+        },
+        {
+            "name": "Paint",
+            "description": [
+                "A simple implimentation of paint done in java script a sort of re-visit on our first project.\n",
+                "You can also change the color of the brush and the size as well as enable velocity based sizing.\n",
+                "A big challange we faced with this one was adding the abylity to undo mistakes.\n",
+                "We hope to work on a way to blend colors together and do stuff with that in a further project.\n"
+            ],
+            "image": "paint.png",
+            "shortDescription": "Paint in javascript",
+            "link": "projects/August/Paint/index.html",
+            "failure": false,
+            "notes": "t13"
         }
+
     ]
 }
